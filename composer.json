@@ -1,0 +1,34 @@
+{
+    "name": "evilfreelancer/resova-api-php",
+    "description": "Resova API PHP7 client",
+    "homepage": "https://developers.resova.com/",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "resova",
+        "client",
+        "rest-api",
+        "api-client"
+    ],
+    "authors": [
+        {
+            "name": "Paul Rock",
+            "email": "paul@drteam.rocks"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Resova\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    }
+}
