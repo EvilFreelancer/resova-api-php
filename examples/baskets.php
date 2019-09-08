@@ -17,10 +17,6 @@ $basket = new Basket([
 $result = $resova->baskets->create($basket)->exec();
 print_r($result);
 
-// List
-$result = $resova->baskets->exec();
-print_r($result);
-
 // Single
 $result = $resova->basket(123)->exec();
 print_r($result);
