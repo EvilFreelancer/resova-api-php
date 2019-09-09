@@ -4,6 +4,14 @@ namespace Resova\Objects;
 
 use Resova\Model;
 
+/**
+ * The gift voucher object
+ * Gift vouchers are types of gifts that can be purchased by customers,
+ * ie "Gift voucher for £10.00", which when purchased will generated
+ * a redeemable gift code.
+ *
+ * @package Resova\Objects
+ */
 class GiftVoucher extends Model
 {
     /**

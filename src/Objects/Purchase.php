@@ -11,72 +11,24 @@ namespace Resova\Objects;
 class Purchase
 {
     /**
-     * The unique id for the purchase object.
+     * List of allowed fields
      *
-     * @var int
+     * @return array
      */
-    public $id;
+    public function allowed(): array
+    {
+        return [
+            'id'             => 'int',    // The unique id for the purchase object.
+            'price'          => 'float',  // The basket purchase subtotal.
+            'discount'       => 'float',  // The total discount value of the basket purchase.
+            'fee'            => 'float',  // The fee value of the basket purchase.
+            'tax'            => 'float',  // The tax value of the basket purchase.
+            'total'          => 'float',  // The total for the basket.
+            'total_quantity' => 'int', // The total quantity of the purchase.
+            'gift_voucher'   => 'object:GiftVoucher',  // The gift voucher object
+            'gift_email'     => 'string',  // Gift email for the purchase
+            'gift_message'   => 'string',  // Gift message for the purchase
+        ];
+    }
 
-    /**
-     * The basket purchase subtotal.
-     *
-     * @var float Positive float or zero
-     */
-    public $price;
-
-    /**
-     * The total discount value of the basket purchase.
-     *
-     * @var float Positive float or zero
-     */
-    public $discount;
-
-    /**
-     * The fee value of the basket purchase.
-     *
-     * @var float Positive float or zero
-     */
-    public $fee;
-
-    /**
-     * The tax value of the basket purchase.
-     *
-     * @var float Positive float or zero
-     */
-    public $tax;
-
-    /**
-     * The total for the basket.
-     *
-     * @var float Positive float or zero
-     */
-    public $total;
-
-    /**
-     * The total quantity of the purchase.
-     *
-     * @var integer
-     */
-    public $total_quantity;
-
-    /**
-     * The gift voucher object
-     *
-     * @var object
-     */
-    public $gift_voucher;
-
-    /**
-     * Gift email for the purchase
-     *
-     * @var string
-     */
-    public $gift_email;
-
-    /**
-     * Gift message for the purchase
-     *
-     * @var string
-     */
-    public $gift_message;
 }
