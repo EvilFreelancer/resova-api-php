@@ -1,9 +1,14 @@
 <?php
 
-namespace Resova\Requests;
+namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class CustomField
+ *
+ * @package Resova\Models
+ */
 class CustomField extends Model
 {
     /**

@@ -21,7 +21,7 @@ class Basket extends Model
     {
         return [
             'id'                  => 'int',    // The unique id for the basket object.
-            'customer'            => 'object:Customer', // The primary customer for the basket, an instance of the customer object.
+            'customer'            => 'Customer', // The primary customer for the basket, an instance of the customer object.
             'price'               => 'float',  // The subtotal price for the basket.
             'fee'                 => 'float',  // The fee value of the basket.
             'discount'            => 'float',  // The total discount value of the basket.
@@ -32,9 +32,9 @@ class Basket extends Model
             'expired'             => 'bool',   // True if the basket has expired.
             'expires_at'          => 'string:timestamp', // The timestamp of when the basket expires.
             'storage_key'         => 'string', // Unique storage key
-            'bookings'            => 'array:Booking', // Array of basket bookings, contains: basket booking object.
-            'promotions'          => 'array:Promotion', // Array of promotions applied to the basket, contains: basket promotion object.
-            'purchases'           => 'array:Purchases', // Array of basket purchases, contains: basket purchase object.
+            'bookings'            => 'array[Booking]', // Array of basket bookings, contains: basket booking object.
+            'promotions'          => 'array[Promotion]', // Array of promotions applied to the basket, contains: basket promotion object.
+            'purchases'           => 'array[Purchases]', // Array of basket purchases, contains: basket purchase object.
             'combined_taxes_fees' => 'array', // Array of taxes and fees applied to the basket.
         ];
     }

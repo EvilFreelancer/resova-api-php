@@ -3,7 +3,7 @@
 namespace Resova\Endpoints\Baskets;
 
 use Resova\Client;
-use Resova\Requests\Purchase;
+use Resova\Models\PurchaseRequest;
 
 class Purchases extends Client
 {
@@ -11,11 +11,11 @@ class Purchases extends Client
      * Create a basket purchase
      * Creates a new basket purchase object
      *
-     * @param Purchase $purchase
+     * @param PurchaseRequest $purchase
      *
      * @return $this
      */
-    public function create(Purchase $purchase): self
+    public function create(PurchaseRequest $purchase): self
     {
         $purchase->setRequired([
             'gift_voucher_id',
@@ -69,11 +69,11 @@ class Purchases extends Client
      * Any parameters not provided will be left unchanged.
      * This request accepts mostly the same arguments as the basket purchase creation call.
      *
-     * @param Purchase $purchase
+     * @param PurchaseRequest $purchase
      *
      * @return $this
      */
-    public function update(Purchase $purchase): self
+    public function update(PurchaseRequest $purchase): self
     {
         // Set HTTP params
         $this->type     = 'put';

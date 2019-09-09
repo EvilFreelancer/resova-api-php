@@ -3,12 +3,12 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use \Resova\Client;
-use \Resova\Requests\Promotion;
+use \Resova\Models\PromotionRequest;
 
 $resova = new Client(['api_key' => '85PGcaVHn6ICbe193RL7LdHDlXMn6D09WSCP3HlUfEdCGf08Jq5yCtfosMD1NL']);
 
 // Promotion create object has required fields
-$promotionCreate = new Promotion([
+$promotionCreate = new PromotionRequest([
     'gift_voucher_id' => 123
 ]);
 

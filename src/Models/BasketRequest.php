@@ -1,10 +1,15 @@
 <?php
 
-namespace Resova\Requests;
+namespace Resova\Models;
 
 use Resova\Model;
 
-class Basket extends Model
+/**
+ * Class BasketRequest
+ *
+ * @package Resova\Models
+ */
+class BasketRequest extends Model
 {
     public function allowed(): array
     {

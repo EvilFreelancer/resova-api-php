@@ -6,7 +6,7 @@ use Resova\Client;
 use Resova\Endpoints\Baskets\Bookings;
 use Resova\Endpoints\Baskets\Promotions;
 use Resova\Endpoints\Baskets\Purchases;
-use Resova\Requests\Basket;
+use Resova\Models\BasketRequest;
 
 /**
  * @property Bookings   $bookings    Bookings management
@@ -51,11 +51,11 @@ class Baskets extends Client
      * Create a basket
      * Creates a new basket object.
      *
-     * @param null|Basket $basket
+     * @param null|BasketRequest $basket
      *
      * @return $this
      */
-    public function create(Basket $basket = null): self
+    public function create(BasketRequest $basket = null): self
     {
         // Set HTTP params
         $this->type     = 'post';
@@ -71,11 +71,11 @@ class Baskets extends Client
      * Any parameters not provided will be left unchanged.
      * This request accepts mostly the same arguments as the basket creation call.
      *
-     * @param null|Basket $basket
+     * @param null|BasketRequest $basket
      *
      * @return $this
      */
-    public function update(Basket $basket = null): self
+    public function update(BasketRequest $basket = null): self
     {
         // Set HTTP params
         $this->type     = 'put';

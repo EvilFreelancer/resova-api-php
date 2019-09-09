@@ -1,10 +1,10 @@
 <?php
 
-namespace Resova\Requests;
+namespace Resova\Models;
 
 use Resova\Model;
 
-class Purchase extends Model
+class PurchaseRequest extends Model
 {
     /**
      * List of allowed fields

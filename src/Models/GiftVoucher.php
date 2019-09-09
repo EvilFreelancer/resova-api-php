@@ -10,7 +10,7 @@ use Resova\Model;
  * ie "Gift voucher for £10.00", which when purchased will generated
  * a redeemable gift code.
  *
- * @package Resova\Objects
+ * @package Resova\Models
  */
 class GiftVoucher extends Model
 {

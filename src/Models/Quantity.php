@@ -1,6 +1,6 @@
 <?php
 
-namespace Resova\Requests;
+namespace Resova\Models;
 
 use Resova\Model;
 

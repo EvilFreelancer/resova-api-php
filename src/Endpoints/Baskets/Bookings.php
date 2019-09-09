@@ -3,7 +3,7 @@
 namespace Resova\Endpoints\Baskets;
 
 use Resova\Client;
-use Resova\Requests\Booking;
+use Resova\Models\BookingRequest;
 
 class Bookings extends Client
 {
@@ -11,11 +11,11 @@ class Bookings extends Client
      * Create a basket
      * Creates a new basket object.
      *
-     * @param Booking $booking
+     * @param BookingRequest $booking
      *
      * @return $this
      */
-    public function create(Booking $booking): self
+    public function create(BookingRequest $booking): self
     {
         $booking->setRequired([
             'instance_id',
@@ -70,11 +70,11 @@ class Bookings extends Client
      * Any parameters not provided will be left unchanged.
      * This request accepts mostly the same arguments as the basket booking creation call.
      *
-     * @param null|Booking $booking
+     * @param null|BookingRequest $booking
      *
      * @return $this
      */
-    public function update(Booking $booking = null): self
+    public function update(BookingRequest $booking = null): self
     {
         // Set HTTP params
         $this->type     = 'put';

@@ -3,7 +3,7 @@
 namespace Resova\Endpoints;
 
 use Resova\Client;
-use Resova\Requests\Customer;
+use Resova\Models\Customer;
 
 class Customers extends Client
 {

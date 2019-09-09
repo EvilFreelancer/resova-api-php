@@ -3,7 +3,7 @@
 namespace Resova\Endpoints\Baskets;
 
 use Resova\Client;
-use Resova\Requests\Promotion;
+use Resova\Models\PromotionRequest;
 
 class Promotions extends Client
 {
@@ -11,11 +11,11 @@ class Promotions extends Client
      * Create a basket promotion
      * Creates a new basket promotion object.
      *
-     * @param Promotion $promotion
+     * @param PromotionRequest $promotion
      *
      * @return $this
      */
-    public function create(Promotion $promotion): self
+    public function create(PromotionRequest $promotion): self
     {
         // Set HTTP params
         $this->type     = 'post';

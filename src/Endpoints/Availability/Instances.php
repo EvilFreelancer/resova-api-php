@@ -3,7 +3,7 @@
 namespace Resova\Endpoints\Availability;
 
 use Resova\Endpoints\Availability;
-use Resova\Requests\Pricing;
+use Resova\Models\Pricing;
 
 class Instances extends Availability
 {

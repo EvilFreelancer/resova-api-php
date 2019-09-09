@@ -1,9 +1,14 @@
 <?php
 
-namespace Resova\Requests;
+namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class Customer
+ *
+ * @package Resova\Models
+ */
 class Customer extends Model
 {
     /**
@@ -26,7 +31,7 @@ class Customer extends Model
             'county'        => 'string', // The county of the customer.
             'postcode'      => 'string', // The postcode of the customer.
             // TODO: implement validation like "array of objects"
-            'custom_fields' => 'array:CustomField', // The custom fields for this customer, as dictated by the customers settings. Pass an array of objects.
+            'custom_fields' => 'array[CustomField]', // The custom fields for this customer, as dictated by the customers settings. Pass an array of objects.
         ];
     }
 }

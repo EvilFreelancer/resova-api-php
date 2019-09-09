@@ -3,12 +3,12 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use \Resova\Client;
-use \Resova\Requests\Basket;
+use \Resova\Models\BasketRequest;
 
 $resova = new Client(['api_key' => '85PGcaVHn6ICbe193RL7LdHDlXMn6D09WSCP3HlUfEdCGf08Jq5yCtfosMD1NL']);
 
 // Basket request object
-$basket = new Basket([
+$basket = new BasketRequest([
     'customer_id' => 123,
     'expires_at'  => '1558101934',
 ]);

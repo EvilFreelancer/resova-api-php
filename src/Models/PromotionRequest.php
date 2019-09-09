@@ -1,10 +1,10 @@
 <?php
 
-namespace Resova\Requests;
+namespace Resova\Models;
 
 use Resova\Model;
 
-class Promotion extends Model
+class PromotionRequest extends Model
 {
     /**
      * List of allowed fields

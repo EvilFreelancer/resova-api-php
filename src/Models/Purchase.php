@@ -6,7 +6,7 @@ namespace Resova\Objects;
  * The basket purchase object
  * The purchase object allows you to manage purchases for a basket.
  *
- * @package Resova\Objects
+ * @package Resova\Models
  */
 class Purchase
 {
@@ -25,7 +25,7 @@ class Purchase
             'tax'            => 'float',  // The tax value of the basket purchase.
             'total'          => 'float',  // The total for the basket.
             'total_quantity' => 'int', // The total quantity of the purchase.
-            'gift_voucher'   => 'object:GiftVoucher',  // The gift voucher object
+            'gift_voucher'   => 'GiftVoucher',  // The gift voucher object
             'gift_email'     => 'string',  // Gift email for the purchase
             'gift_message'   => 'string',  // Gift message for the purchase
         ];

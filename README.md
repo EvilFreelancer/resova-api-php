@@ -56,10 +56,10 @@ print_r($result);
 https://developers.resova.com/reference#the-basket-object
 
 ```php
-use \Resova\Requests\Basket;
+use \Resova\Models\BasketRequest;
 
 // Basket request object
-$basket = new Basket([
+$basket = new BasketRequest([
     'customer_id' => 123,
     'expires_at'  => '1558101934',
 ]);
