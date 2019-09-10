@@ -82,7 +82,7 @@ trait HttpTrait
      *
      * @return null|object Array with data or NULL if error
      */
-    public function exec(): ?object
+    public function exec()
     {
         return $this->doRequest($this->type, $this->endpoint, $this->params);
     }
@@ -92,7 +92,7 @@ trait HttpTrait
      *
      * @return null|ResponseInterface RAW response or NULL if error
      */
-    public function raw()
+    public function raw(): ?ResponseInterface
     {
         return $this->doRequest($this->type, $this->endpoint, $this->params, true);
     }
@@ -123,11 +123,7 @@ trait HttpTrait
             // Return RAW result if required
             $response = $raw ? $result : json_decode($result->getBody(), false);
 
-        } catch (ErrorException $e) {
-            echo $e->getMessage() . "\n";
-            echo $e->getTrace();
-
-        } catch (GuzzleException $e) {
+        } catch (ErrorException | GuzzleException $e) {
             echo $e->getMessage() . "\n";
             echo $e->getTrace();
         }

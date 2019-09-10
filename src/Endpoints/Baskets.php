@@ -6,6 +6,8 @@ use Resova\Client;
 use Resova\Endpoints\Baskets\Bookings;
 use Resova\Endpoints\Baskets\Promotions;
 use Resova\Endpoints\Baskets\Purchases;
+use Resova\Models\Basket;
+use Resova\Models\BasketDelete;
 use Resova\Models\BasketRequest;
 
 /**
@@ -43,6 +45,7 @@ class Baskets extends Client
         // Set HTTP params
         $this->type     = 'get';
         $this->endpoint = '/baskets/' . $basket_id;
+        $this->response = Basket::class;
 
         return $this;
     }
@@ -61,6 +64,7 @@ class Baskets extends Client
         $this->type     = 'post';
         $this->endpoint = '/baskets';
         $this->params   = $basket;
+        $this->response = Basket::class;
 
         return $this;
     }
@@ -81,6 +85,7 @@ class Baskets extends Client
         $this->type     = 'put';
         $this->endpoint = '/baskets/' . $this->basket_id;
         $this->params   = $basket;
+        $this->response = Basket::class;
 
         return $this;
     }
@@ -96,6 +101,7 @@ class Baskets extends Client
         // Set HTTP params
         $this->type     = 'delete';
         $this->endpoint = '/baskets/' . $this->basket_id;
+        $this->response = BasketDelete::class;
 
         return $this;
     }

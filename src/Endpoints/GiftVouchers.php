@@ -3,6 +3,8 @@
 namespace Resova\Endpoints;
 
 use Resova\Client;
+use Resova\Models\GiftVoucher;
+use Resova\Models\GiftVoucherList;
 
 class GiftVouchers extends Client
 {
@@ -26,6 +28,7 @@ class GiftVouchers extends Client
         // Set HTTP params
         $this->type     = 'get';
         $this->endpoint = '/gift_vouchers/' . $voucher_id;
+        $this->response = GiftVoucher::class;
 
         return $this;
     }
@@ -42,6 +45,7 @@ class GiftVouchers extends Client
         // Set HTTP params
         $this->type     = 'get';
         $this->endpoint = '/gift_vouchers';
+        $this->response = GiftVoucherList::class;
 
         return $this;
     }

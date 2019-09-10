@@ -1,6 +1,6 @@
 <?php
 
-namespace Resova\Objects;
+namespace Resova\Models;
 
 use Resova\Model;
 

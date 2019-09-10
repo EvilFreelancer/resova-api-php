@@ -32,6 +32,7 @@ class Customers extends Client
         $this->type     = 'post';
         $this->endpoint = '/customers';
         $this->params   = $customer;
+        $this->response = Customer::class;
 
         return $this;
     }
@@ -51,6 +52,7 @@ class Customers extends Client
         // Set HTTP params
         $this->type     = 'get';
         $this->endpoint = '/customers/' . $customer_id;
+        $this->response = Customer::class;
 
         return $this;
     }
@@ -69,6 +71,7 @@ class Customers extends Client
         $this->type     = 'put';
         $this->endpoint = '/customers';
         $this->params   = $customer;
+        $this->response = Customer::class;
 
         return $this;
     }

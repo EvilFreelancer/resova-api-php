@@ -32,6 +32,7 @@ class Calendars extends Availability
         // Set HTTP params
         $this->type     = 'get';
         $this->endpoint = '/availability/calendar' . '?' . http_build_query($params);
+        $this->response = \Resova\Models\Availability::class;
 
         return $this;
     }

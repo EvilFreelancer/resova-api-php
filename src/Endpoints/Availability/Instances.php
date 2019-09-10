@@ -3,6 +3,8 @@
 namespace Resova\Endpoints\Availability;
 
 use Resova\Endpoints\Availability;
+use Resova\Models\Instance;
+use Resova\Models\InstancePricing;
 use Resova\Models\Pricing;
 
 class Instances extends Availability
@@ -22,6 +24,7 @@ class Instances extends Availability
         // Set HTTP params
         $this->type     = 'get';
         $this->endpoint = '/availability/instance/' . $instance_id;
+        $this->response = Instance::class;
 
         return $this;
     }
@@ -44,6 +47,7 @@ class Instances extends Availability
         $this->type     = 'post';
         $this->endpoint = '/availability/instance/' . $this->instance_id . '/pricing';
         $this->params   = $pricing;
+        $this->response = InstancePricing::class;
 
         return $this;
     }
