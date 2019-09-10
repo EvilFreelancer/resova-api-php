@@ -30,7 +30,7 @@ class Customers extends Client
 
         // Set HTTP params
         $this->type     = 'post';
-        $this->endpoint = $this->config->get('base_uri') . '/customers';
+        $this->endpoint = '/customers';
         $this->params   = $customer;
 
         return $this;
@@ -50,7 +50,7 @@ class Customers extends Client
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/customers/' . $customer_id;
+        $this->endpoint = '/customers/' . $customer_id;
 
         return $this;
     }
@@ -67,7 +67,7 @@ class Customers extends Client
     {
         // Set HTTP params
         $this->type     = 'put';
-        $this->endpoint = $this->config->get('base_uri') . '/customers';
+        $this->endpoint = '/customers';
         $this->params   = $customer;
 
         return $this;

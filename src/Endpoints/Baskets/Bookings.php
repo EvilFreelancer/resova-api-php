@@ -24,7 +24,7 @@ class Bookings extends Client
 
         // Set HTTP params
         $this->type     = 'post';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/bookings';
+        $this->endpoint = '/baskets/' . $this->basket_id . '/bookings';
         $this->params   = $booking;
 
         return $this;
@@ -44,7 +44,7 @@ class Bookings extends Client
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/bookings/' . $booking_id;
+        $this->endpoint = '/baskets/' . $this->basket_id . '/bookings/' . $booking_id;
 
         return $this;
     }
@@ -59,7 +59,7 @@ class Bookings extends Client
     {
         // Set HTTP params
         $this->type     = 'delete';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/bookings/' . $this->booking_id;
+        $this->endpoint = '/baskets/' . $this->basket_id . '/bookings/' . $this->booking_id;
 
         return $this;
     }
@@ -78,7 +78,7 @@ class Bookings extends Client
     {
         // Set HTTP params
         $this->type     = 'put';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/bookings';
+        $this->endpoint = '/baskets/' . $this->basket_id . '/bookings';
         $this->params   = $booking;
 
         return $this;
@@ -95,7 +95,7 @@ class Bookings extends Client
     {
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/bookings';
+        $this->endpoint = '/baskets/' . $this->basket_id . '/bookings';
 
         return $this;
     }

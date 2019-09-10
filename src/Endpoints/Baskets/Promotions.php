@@ -19,7 +19,7 @@ class Promotions extends Client
     {
         // Set HTTP params
         $this->type     = 'post';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/promotions';
+        $this->endpoint = '/baskets/' . $this->basket_id . '/promotions';
         $this->params   = $promotion;
 
         return $this;
@@ -39,7 +39,7 @@ class Promotions extends Client
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/promotions/' . $promotion_id;
+        $this->endpoint = '/baskets/' . $this->basket_id . '/promotions/' . $promotion_id;
 
         return $this;
     }
@@ -54,7 +54,7 @@ class Promotions extends Client
     {
         // Set HTTP params
         $this->type     = 'delete';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/promotions/' . $this->promotion_id;
+        $this->endpoint = '/baskets/' . $this->basket_id . '/promotions/' . $this->promotion_id;
 
         return $this;
     }
@@ -70,7 +70,7 @@ class Promotions extends Client
     {
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/promotions';
+        $this->endpoint = '/baskets/' . $this->basket_id . '/promotions';
 
         return $this;
     }

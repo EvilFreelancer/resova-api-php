@@ -49,10 +49,10 @@ trait HttpTrait
 
             if ($params === null) {
                 // Execute the request to server
-                $result = $this->client->request($type, $url);
+                $result = $this->client->request($type, $this->config->get('base_uri') . $url);
             } else {
                 // Execute the request to server
-                $result = $this->client->request($type, $url, [RequestOptions::FORM_PARAMS => $params->toArray()]);
+                $result = $this->client->request($type, $this->config->get('base_uri') . $url, [RequestOptions::FORM_PARAMS => $params->toArray()]);
             }
 
             // Check the code status

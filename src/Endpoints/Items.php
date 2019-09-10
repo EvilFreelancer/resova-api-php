@@ -25,7 +25,7 @@ class Items extends Client
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/items/' . $item_id;
+        $this->endpoint = '/items/' . $item_id;
 
         return $this;
     }
@@ -40,7 +40,7 @@ class Items extends Client
     {
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/items';
+        $this->endpoint = '/items';
 
         return $this;
     }
@@ -56,7 +56,7 @@ class Items extends Client
     {
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/items/' . $this->item_id . '/booking_questions';
+        $this->endpoint = '/items/' . $this->item_id . '/booking_questions';
 
         return $this;
     }
@@ -72,7 +72,7 @@ class Items extends Client
     {
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/items/' . $this->item_id . '/reviews';
+        $this->endpoint = '/items/' . $this->item_id . '/reviews';
 
         return $this;
     }
@@ -88,7 +88,7 @@ class Items extends Client
     {
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/items/' . $this->item_id . '/extras';
+        $this->endpoint = '/items/' . $this->item_id . '/extras';
 
         return $this;
     }

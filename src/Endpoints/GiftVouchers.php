@@ -25,7 +25,7 @@ class GiftVouchers extends Client
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/gift_vouchers/' . $voucher_id;
+        $this->endpoint = '/gift_vouchers/' . $voucher_id;
 
         return $this;
     }
@@ -41,7 +41,7 @@ class GiftVouchers extends Client
     {
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/gift_vouchers';
+        $this->endpoint = '/gift_vouchers';
 
         return $this;
     }

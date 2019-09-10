@@ -13,7 +13,9 @@ class Config
         'api_key',
         'timeout',
         'tries',
-        'seconds'
+        'seconds',
+        'debug',
+        'track_redirects'
     ];
 
     /**
@@ -45,16 +47,20 @@ class Config
         $this->_parameters = [
             // Errors must be disabled by default, because we need to get error codes
             // @link http://docs.guzzlephp.org/en/stable/request-options.html#http-errors
-            'http_errors' => false,
+            'http_errors'     => false,
 
             // Wrapper settings
-            'tries'       => 2,  // Count of tries
-            'seconds'     => 10, // Waiting time per each try
+            'tries'           => 2,  // Count of tries
+            'seconds'         => 10, // Waiting time per each try
+
+            // Optional parameters
+            'debug'           => false,
+            'track_redirects' => false,
 
             // Main parameters
-            'timeout'     => 20,
-            'user_agent'  => 'Resova PHP Client',
-            'base_uri'    => 'https://api.resova.eu/v1'
+            'timeout'         => 20,
+            'user_agent'      => 'Resova PHP Client',
+            'base_uri'        => 'https://api.resova.eu/v1'
         ];
 
         // Overwrite parameters by client input
@@ -113,8 +119,8 @@ class Config
         return [
             // 'base_uri'        => $this->get('base_uri'), // By some reasons base_uri option is not work anymore
             'timeout'         => $this->get('timeout'),
-            'track_redirects' => false,
-            'debug'           => true,
+            'track_redirects' => $this->get('track_redirects'),
+            'debug'           => $this->get('debug'),
             'headers'         => [
                 'User-Agent' => $this->get('user_agent'),
                 'X-API-KEY'  => $this->get('api_key'),

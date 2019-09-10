@@ -23,7 +23,7 @@ class Purchases extends Client
 
         // Set HTTP params
         $this->type     = 'post';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/purchases';
+        $this->endpoint = '/baskets/' . $this->basket_id . '/purchases';
         $this->params   = $purchase;
 
         return $this;
@@ -43,7 +43,7 @@ class Purchases extends Client
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/purchases/' . $purchase_id;
+        $this->endpoint = '/baskets/' . $this->basket_id . '/purchases/' . $purchase_id;
 
         return $this;
     }
@@ -58,7 +58,7 @@ class Purchases extends Client
     {
         // Set HTTP params
         $this->type     = 'delete';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/purchases/' . $this->purchase_id;
+        $this->endpoint = '/baskets/' . $this->basket_id . '/purchases/' . $this->purchase_id;
 
         return $this;
     }
@@ -77,7 +77,7 @@ class Purchases extends Client
     {
         // Set HTTP params
         $this->type     = 'put';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/purchases/' . $this->purchase_id;
+        $this->endpoint = '/baskets/' . $this->basket_id . '/purchases/' . $this->purchase_id;
         $this->params   = $purchase;
 
         return $this;
@@ -94,7 +94,7 @@ class Purchases extends Client
     {
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/baskets/' . $this->basket_id . '/purchases';
+        $this->endpoint = '/baskets/' . $this->basket_id . '/purchases';
 
         return $this;
     }

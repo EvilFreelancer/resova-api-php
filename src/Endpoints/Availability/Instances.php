@@ -21,7 +21,7 @@ class Instances extends Availability
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/availability/instance/' . $id;
+        $this->endpoint = '/availability/instance/' . $id;
 
         return $this;
     }
@@ -42,7 +42,7 @@ class Instances extends Availability
 
         // Set HTTP params
         $this->type     = 'post';
-        $this->endpoint = $this->config->get('base_uri') . '/availability/instance/' . $this->instance_id . '/pricing';
+        $this->endpoint = '/availability/instance/' . $this->instance_id . '/pricing';
         $this->params   = $pricing;
 
         return $this;

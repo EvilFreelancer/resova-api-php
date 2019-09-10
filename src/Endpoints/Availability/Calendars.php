@@ -31,7 +31,7 @@ class Calendars extends Availability
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = $this->config->get('base_uri') . '/availability/calendar' . '?' . http_build_query($params);
+        $this->endpoint = '/availability/calendar' . '?' . http_build_query($params);
 
         return $this;
     }
