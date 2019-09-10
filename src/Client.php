@@ -94,7 +94,7 @@ class Client
      *
      * @return string
      */
-    public function snakeToPascal(string $str): string
+    private function snakeToPascal(string $str): string
     {
         // Remove underscores, capitalize words, squash, lowercase first.
         return str_replace(' ', '', ucwords(str_replace('_', ' ', $str)));
