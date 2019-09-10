@@ -8,6 +8,7 @@ use Resova\Endpoints\Availability;
 use Resova\Endpoints\Baskets;
 use Resova\Endpoints\Customers;
 use Resova\Endpoints\GiftVouchers;
+use Resova\Endpoints\Items;
 use Resova\Helpers\HttpTrait;
 
 /**
@@ -15,10 +16,12 @@ use Resova\Helpers\HttpTrait;
  * @property Baskets      $baskets       Baskets management
  * @property Customers    $customers     Customers management
  * @property GiftVouchers $gift_vouchers GiftVouchers management
+ * @property Items        $items         For work with list of items
  *
  * @method Baskets      basket(int $basket_id)
  * @method Customers    customer(int $customer_id)
- * @method GiftVouchers gift_voucher(int $gift_voucher)
+ * @method GiftVouchers gift_voucher(int $gift_voucher_id)
+ * @method Items        item(int $item_id)
  *
  * Single entry point for all classes
  *
