@@ -74,7 +74,7 @@ class Model
      */
     public function __set(string $name, $value)
     {
-        if (!\in_array($name, $this->allowed(), true)) {
+        if (!array_key_exists($name, $this->allowed())) {
             throw new InvalidArgumentException("Argument $name is not allowed [" . implode(',', $this->allowed()) . ']');
         }
 

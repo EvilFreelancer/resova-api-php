@@ -11,17 +11,17 @@ class Instances extends Availability
      * Retrieve an instance
      * Retrieve the details of a specific instance.
      *
-     * @param int $id The Instance Id
+     * @param string $instance_id The Instance Id
      *
      * @return $this
      */
-    public function __invoke(int $id): self
+    public function __invoke(string $instance_id): self
     {
-        $this->instance_id = $id;
+        $this->instance_id = $instance_id;
 
         // Set HTTP params
         $this->type     = 'get';
-        $this->endpoint = '/availability/instance/' . $id;
+        $this->endpoint = '/availability/instance/' . $instance_id;
 
         return $this;
     }

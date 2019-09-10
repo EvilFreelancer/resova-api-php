@@ -66,7 +66,9 @@ print_r($result);
 
 ### *Availability* endpoints
 
-Availability details of rooms, prices, information about room, calendars etc.
+Availability details of instances, instances prices and calendars of dates etc.
+
+> Instance - in logic of Resova API mean time slot with price
 
 https://developers.resova.com/reference#availability
 
