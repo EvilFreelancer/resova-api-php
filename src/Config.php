@@ -77,7 +77,7 @@ class Config
      * @return \Resova\Config
      * @throws \ErrorException
      */
-    public function set($name, $value): self
+    private function set($name, $value): self
     {
         if (!\in_array($name, self::ALLOWED, false)) {
             throw new \ErrorException("Parameter \"$name\" is not in available list [" . implode(',', self::ALLOWED) . ']');
