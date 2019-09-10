@@ -34,8 +34,12 @@ class Instances extends Availability
      *
      * @return $this
      */
-    public function pricing(Pricing $pricing = null): self
+    public function pricing(Pricing $pricing): self
     {
+        $pricing->setRequired([
+            'quantities'
+        ]);
+
         // Set HTTP params
         $this->type     = 'post';
         $this->endpoint = $this->config->get('base_uri') . '/availability/instance/' . $this->instance_id . '/pricing';

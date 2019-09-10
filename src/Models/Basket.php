@@ -34,7 +34,7 @@ class Basket extends Model
             'storage_key'         => 'string', // Unique storage key
             'bookings'            => 'array[Booking]', // Array of basket bookings, contains: basket booking object.
             'promotions'          => 'array[Promotion]', // Array of promotions applied to the basket, contains: basket promotion object.
-            'purchases'           => 'array[Purchases]', // Array of basket purchases, contains: basket purchase object.
+            'purchases'           => 'array[Purchase]', // Array of basket purchases, contains: basket purchase object.
             'combined_taxes_fees' => 'array', // Array of taxes and fees applied to the basket.
         ];
     }

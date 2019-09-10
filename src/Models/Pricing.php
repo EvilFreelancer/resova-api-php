@@ -14,7 +14,7 @@ class Pricing extends Model
     public function allowed(): array
     {
         return [
-            'quantities' => 'array',    // The quantities of item pricing categories. Pass an array of objects.
+            'quantities' => 'array[Quantity]', // The quantities of item pricing categories. Pass an array of objects.
         ];
     }
 }
