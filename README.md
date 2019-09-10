@@ -24,7 +24,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $resova = new \Resova\Client(['api_key' => 'xxxx']);
 
 // Get all slots for all items in dates range
-$calendar = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'), [4, 5])->exec();
+$calendar = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'))->exec();
 
 // Get availability of slots for some item
 $instance = $resova->availability->instance(3)->exec();
