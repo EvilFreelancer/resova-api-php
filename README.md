@@ -24,7 +24,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $resova = new \Resova\Client(['api_key' => 'xxxx']);
 
 // Get all slots for all items in dates range
-$calendar = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'))->exec();
+$calendar = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'), [4, 5])->exec();
 
 // Get availability of slots for some item
 $instance = $resova->availability->instance(3)->exec();
@@ -36,15 +36,54 @@ If you haven't already, you can sign up for a new account here.
 Once you have logged into your account head over to **Settings > General Settings > Developer**
 where your API KEY will be located.
 
+### *Items* endpoints
+
+Items mean your rooms in Resova system.
+
+https://developers.resova.com/reference#items
+
+```php
+// Single
+$result = $resova->item(1)->exec();
+print_r($result);
+
+// Single: Reviews list
+$result = $resova->item(1)->reviews()->exec();
+print_r($result);
+
+// Single: Booking questions list
+$result = $resova->item(1)->booking_questions()->exec();
+print_r($result);
+
+// Single: Extras list
+$result = $resova->item(1)->extras()->exec();
+print_r($result);
+
+// All
+$result = $resova->items->exec();
+print_r($result);
+```
+
 ### *Availability* endpoints
+
+Availability details of rooms, prices, information about room, calendars etc.
 
 https://developers.resova.com/reference#availability
 
 ```php
+use \Resova\Models\Pricing;
+
 $result = $resova->availability->instance(123)->exec();
 print_r($result);
 
-$result = $resova->availability->instance(123)->pricing()->exec();
+$pricing = new Pricing([
+    'quantities' => [
+        ['pricing_category_id' => 1, 'quantity' => 2],
+        ['pricing_category_id' => 1, 'quantity' => 3],
+        ['pricing_category_id' => 1, 'quantity' => 4],
+    ]
+]);
+$result = $resova->availability->instance(123)->pricing($pricing)->exec();
 print_r($result);
 
 $result = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'))->exec();
@@ -52,6 +91,8 @@ print_r($result);
 ```
 
 ### *Baskets* endpoints
+
+Baskets in Resova it mean Carts, it contain details about prepared for booking carts created by clients.
 
 https://developers.resova.com/reference#the-basket-object
 
@@ -87,10 +128,12 @@ print_r($result);
 
 ### *Customers* endpoints
 
+For work with customers information, like emails, phones, addresses, etc.
+
 https://developers.resova.com/reference#customers
 
 ```php
-use \Resova\Requests\Customer;
+use \Resova\Models\Customer;
 
 // Customer create request object
 $customerCreate = new Customer([
@@ -120,6 +163,8 @@ print_r($result);
 ```
 
 ### *Gift Vouchers* endpoints
+
+Gift Vouchers in Resova it mean Promocodes, you can manage your promo campaigns. 
 
 https://developers.resova.com/reference#gift-vouchers
 
