@@ -23,7 +23,7 @@ class Model
      *
      * @return array
      */
-    public function allowed(): array
+    protected function allowed(): array
     {
         return [];
     }
@@ -46,7 +46,7 @@ class Model
      *
      * @return array
      */
-    public function required(): array
+    private function required(): array
     {
         return $this->required;
     }
