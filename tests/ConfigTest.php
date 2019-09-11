@@ -34,14 +34,17 @@ class ConfigTest extends TestCase
 
     public function testGuzzle(): void
     {
-        $obj = new Config();
-        $array = $obj->guzzle();
+        $obj          = new Config();
+        $obj->api_key = 'test';
+        $array        = $obj->guzzle();
+
         $this->assertIsArray($array);
         $this->assertArrayHasKey('timeout', $array);
     }
 
     public function testGet(): void
     {
+        $this->expectException(ErrorException::class);
         $obj = new Config();
         $this->assertEquals(10, $obj->get('seconds'));
         $this->assertNull($obj->get('dummy'));

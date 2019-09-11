@@ -2,6 +2,8 @@
 
 namespace Resova;
 
+use ErrorException;
+
 class Config
 {
     /**
@@ -70,14 +72,63 @@ class Config
     }
 
     /**
+     * Magic setter parameter by name
+     *
+     * @param string               $name  Name of parameter
+     * @param string|bool|int|null $value Value of parameter
+     *
+     * @throws \ErrorException
+     */
+    public function __set(string $name, $value)
+    {
+        $this->set($name, $value);
+    }
+
+    /**
+     * Check if parameter if available
+     *
+     * @param string $name Name of parameter
+     *
+     * @return bool
+     */
+    public function __isset($name): bool
+    {
+        return isset($this->_parameters[$name]);
+    }
+
+    /**
+     * Get parameter via magic call
+     *
+     * @param string $name Name of parameter
+     *
+     * @return bool|int|string|null
+     * @throws ErrorException
+     */
+    public function __get($name)
+    {
+        return $this->get($name);
+    }
+
+    /**
+     * Remove parameter from array
+     *
+     * @param string $name Name of parameter
+     */
+    public function __unset($name)
+    {
+        unset($this->_parameters[$name]);
+    }
+
+    /**
      * Set parameter by name
      *
      * @param string               $name  Name of parameter
      * @param string|bool|int|null $value Value of parameter
-     * @return \Resova\Config
-     * @throws \ErrorException
+     *
+     * @return $this
+     * @throws ErrorException
      */
-    private function set($name, $value): self
+    public function set(string $name, $value): self
     {
         if (!\in_array($name, self::ALLOWED, false)) {
             throw new \ErrorException("Parameter \"$name\" is not in available list [" . implode(',', self::ALLOWED) . ']');
@@ -91,12 +142,18 @@ class Config
     /**
      * Get available parameter by name
      *
-     * @param string $name
-     * @return string|bool|int|null
+     * @param string $name Name of parameter
+     *
+     * @return bool|int|string|null
+     * @throws ErrorException
      */
     public function get(string $name)
     {
-        return $this->_parameters[$name] ?? null;
+        if (!isset($this->_parameters[$name])) {
+            throw new \ErrorException("Parameter \"$name\" is not in set");
+        }
+
+        return $this->_parameters[$name];
     }
 
     /**
@@ -113,6 +170,7 @@ class Config
      * Return all ready for Guzzle parameters
      *
      * @return array
+     * @throws ErrorException
      */
     public function guzzle(): array
     {
