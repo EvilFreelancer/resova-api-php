@@ -26,13 +26,10 @@ class ConfigTest extends TestCase
         }
     }
 
-    public function testValidate(): void
+    public function testSet(): void
     {
-        $obj = new Config(['api_key' => 'dummy']);
-        $this->assertTrue($obj->validate());
         $this->expectException(ErrorException::class);
         $obj = new Config(['dummy' => 'dummy']);
-        $this->assertFalse($obj->validate());
     }
 
     public function testGuzzle(): void
