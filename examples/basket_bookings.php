@@ -38,5 +38,5 @@ $result = $resova->basket(123)->booking(123)->update($bookingUpdate)->exec();
 print_r($result);
 
 // List
-$result = $resova->basket(123)->bookings->exec();
+$result = $resova->basket(123)->bookings->all()->exec();
 print_r($result);

@@ -69,7 +69,7 @@ class Customers extends Client
     {
         // Set HTTP params
         $this->type     = 'put';
-        $this->endpoint = '/customers';
+        $this->endpoint = '/customers/' . $this->customer_id;
         $this->params   = $customer;
         $this->response = Customer::class;
 

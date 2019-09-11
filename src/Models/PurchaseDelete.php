@@ -4,11 +4,16 @@ namespace Resova\Models;
 
 class PurchaseDelete
 {
-    /*
-     * TODO: make this
-{
- "deleted": true,
- "id": 59870
-}
+    /**
+     * List of allowed fields
+     *
+     * @return array
      */
+    public function allowed(): array
+    {
+        return [
+            'id'      => 'int',
+            'deleted' => 'bool',
+        ];
+    }
 }

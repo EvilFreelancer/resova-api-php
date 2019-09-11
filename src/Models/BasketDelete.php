@@ -6,11 +6,16 @@ namespace Resova\Models;
 
 class BasketDelete
 {
-    /*
-     * TODO: make this
-{
- "deleted": true,
- "id": 56100
-}
+    /**
+     * List of allowed fields
+     *
+     * @return array
      */
+    public function allowed(): array
+    {
+        return [
+            'id'      => 'int',
+            'deleted' => 'bool',
+        ];
+    }
 }

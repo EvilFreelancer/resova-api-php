@@ -23,5 +23,5 @@ $result = $resova->item(1)->extras()->exec();
 print_r($result);
 
 // All
-$result = $resova->items->exec();
+$result = $resova->items->all()->exec();
 print_r($result);

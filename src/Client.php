@@ -4,13 +4,14 @@ namespace Resova;
 
 use BadMethodCallException;
 use ErrorException;
-use Exception;
 use GuzzleHttp\Exception\ClientException;
 use Resova\Endpoints\Availability;
 use Resova\Endpoints\Baskets;
 use Resova\Endpoints\Customers;
 use Resova\Endpoints\GiftVouchers;
 use Resova\Endpoints\Items;
+use Resova\Endpoints\Transactions;
+use Resova\Endpoints\Webhooks;
 
 /**
  * @property Availability $availability  Availability of time slots
@@ -18,11 +19,15 @@ use Resova\Endpoints\Items;
  * @property Customers    $customers     Customers management
  * @property GiftVouchers $gift_vouchers GiftVouchers management
  * @property Items        $items         For work with list of items
+ * @property Transactions $transactions  Transactions management
+ * @property Webhooks     $webhooks      Webhooks management
  *
  * @method Baskets      basket(int $basket_id)
  * @method Customers    customer(int $customer_id)
  * @method GiftVouchers gift_voucher(int $gift_voucher_id)
  * @method Items        item(int $item_id)
+ * @method Transactions transaction(int $transaction_id)
+ * @method Webhooks     webhook(int $webhook_id)
  *
  * Single entry point for all classes
  *

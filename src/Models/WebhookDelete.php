@@ -2,7 +2,9 @@
 
 namespace Resova\Models;
 
-class BookingDelete
+use Resova\Model;
+
+class WebhookDelete extends Model
 {
     /**
      * List of allowed fields
