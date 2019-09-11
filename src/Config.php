@@ -127,20 +127,4 @@ class Config
             ]
         ];
     }
-
-
-    /**
-     * Validate preconfigured parameters
-     *
-     * @return bool
-     */
-    public function validate(): bool
-    {
-        foreach (self::REQUIRED as $item) {
-            if (false === array_key_exists($item, $this->_parameters)) {
-                return false;
-            }
-        }
-        return true;
-    }
 }

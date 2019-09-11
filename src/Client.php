@@ -2,14 +2,15 @@
 
 namespace Resova;
 
-use ErrorException;
 use BadMethodCallException;
+use ErrorException;
+use Exception;
+use GuzzleHttp\Exception\ClientException;
 use Resova\Endpoints\Availability;
 use Resova\Endpoints\Baskets;
 use Resova\Endpoints\Customers;
 use Resova\Endpoints\GiftVouchers;
 use Resova\Endpoints\Items;
-use Resova\Helpers\HttpTrait;
 
 /**
  * @property Availability $availability  Availability of time slots
@@ -71,12 +72,12 @@ class Client
     public function __construct($config)
     {
         // If string then it's a token
-        if (\is_string($config)) {
+        if (is_string($config)) {
             $config = new Config(['api_key' => $config]);
         }
 
         // If array then need create object
-        if (\is_array($config)) {
+        if (is_array($config)) {
             $config = new Config($config);
         }
 
@@ -104,7 +105,9 @@ class Client
      * Magic method required for call of another classes
      *
      * @param string $name
+     *
      * @return bool|object
+     * @throws BadMethodCallException
      */
     public function __get(string $name)
     {
@@ -115,26 +118,22 @@ class Client
         // By default return is empty
         $object = '';
 
-        try {
+        // Set class name as namespace
+        $class = $this->namespace . '\\' . $this->snakeToPascal($name);
 
-            // Set class name as namespace
-            $class = $this->namespace . '\\' . $this->snakeToPascal($name);
+        try {
 
             // Try to create object by name
             $object = new $class($this->config);
 
-            // If object is not created
-            if (!is_object($object)) {
-                throw new BadMethodCallException("Class $class could not to be loaded");
-            }
-
-        } catch (\Exception $e) {
+        } catch (ErrorException | ClientException $e) {
             echo $e->getMessage() . "\n";
             echo $e->getTrace();
         }
 
-        if ($object === '') {
-            throw new BadMethodCallException('Wrong type of object');
+        // If object is not created
+        if (!is_object($object)) {
+            throw new BadMethodCallException("Class $class could not to be loaded");
         }
 
         return $object;
@@ -145,33 +144,31 @@ class Client
      *
      * @param string $name
      * @param array  $arguments
+     *
      * @return bool|object
+     * @throws BadMethodCallException
      */
     public function __call(string $name, array $arguments)
     {
         // By default return is empty
         $object = '';
 
-        try {
+        // Set class name as namespace
+        $class = $this->namespace . '\\' . $this->snakeToPascal($name) . 's';
 
-            // Set class name as namespace
-            $class = $this->namespace . '\\' . $this->snakeToPascal($name) . 's';
+        try {
 
             // Try to create object by name
             $object = new $class($this->config);
 
-            // If object is not created
-            if (!is_object($object)) {
-                throw new BadMethodCallException("Class $class could not to be loaded");
-            }
-
-        } catch (\Exception $e) {
+        } catch (ErrorException | ClientException $e) {
             echo $e->getMessage() . "\n";
             echo $e->getTrace();
         }
 
-        if ($object === '') {
-            throw new BadMethodCallException('Wrong type of object');
+        // If object is not created
+        if (!is_object($object)) {
+            throw new BadMethodCallException("Class $class could not to be loaded");
         }
 
         return call_user_func_array($object, $arguments);

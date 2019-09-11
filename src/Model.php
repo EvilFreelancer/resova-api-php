@@ -22,6 +22,7 @@ class Model
      * List of allowed fields
      *
      * @return array
+     * @codeCoverageIgnore
      */
     protected function allowed(): array
     {

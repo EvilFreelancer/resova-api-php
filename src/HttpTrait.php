@@ -1,12 +1,11 @@
 <?php
 
-namespace Resova\Helpers;
+namespace Resova;
 
 use GuzzleHttp\Exception\GuzzleException;
 use ErrorException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
-use Resova\Config;
 
 /**
  * @author  Paul Rock <paul@drteam.rocks>
