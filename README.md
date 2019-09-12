@@ -12,7 +12,9 @@
 
 My [review of Resova API](https://docs.google.com/document/d/11RVyOVyMxKqBIg-yNkJfhXS2dO0HwpocJt4QhjwXOU0/edit?usp=sharing) (work in progress)
 
-# Terminology
+## Terminology
+
+There are four key objects in Resova that every API developer should know about.
 
 | Objects      | Description |
 |--------------|-------------|
@@ -20,8 +22,6 @@ My [review of Resova API](https://docs.google.com/document/d/11RVyOVyMxKqBIg-yNk
 | instances    | An instance is a date and time belonging to an item. An instance is required to be included when creating a booking. |
 | bookings     | A customer will make a booking for a specific Item and Instance (date/time), they're essentially purchasing something. All bookings belong to a Transaction |
 | transactions | A Transaction is the overall purchase order. All Bookings belong to a Transaction and there can be more than one Booking per Transaction. |
-
-There are four key objects in Resova that every API developer should know about.
 
 ## How to use
 
