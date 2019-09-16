@@ -7,8 +7,7 @@ use \Resova\Models\Pricing;
 use \Resova\Models\Quantity;
 
 $resova = new Client(['api_key' => '85PGcaVHn6ICbe193RL7LdHDlXMn6D09WSCP3HlUfEdCGf08Jq5yCtfosMD1NL']);
-
-$result = (string) $resova->availability->instance(3)->exec();
+$result = $resova->availability->instance(3)->exec();
 print_r($result);
 
 $pricing = new Pricing([

@@ -10,9 +10,10 @@ class Config
      * List of allowed parameters
      */
     public const ALLOWED = [
-        'user_agent',
-        'base_uri',
         'api_key',
+        'proxy',
+        'base_uri',
+        'user_agent',
         'timeout',
         'tries',
         'seconds',
@@ -174,7 +175,7 @@ class Config
      */
     public function guzzle(): array
     {
-        return [
+        $options = [
             // 'base_uri'        => $this->get('base_uri'), // By some reasons base_uri option is not work anymore
             'timeout'         => $this->get('timeout'),
             'track_redirects' => $this->get('track_redirects'),
@@ -184,5 +185,12 @@ class Config
                 'X-API-KEY'  => $this->get('api_key'),
             ]
         ];
+
+        // Proxy is optional
+        if (isset($this->proxy)) {
+            $options['proxy'] = $this->proxy;
+        }
+
+        return $options;
     }
 }
