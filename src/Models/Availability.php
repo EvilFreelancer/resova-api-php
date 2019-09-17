@@ -2,6 +2,12 @@
 
 namespace Resova\Models;
 
+/**
+ * Class Availability
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class Availability
 {
 

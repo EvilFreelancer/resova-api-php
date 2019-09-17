@@ -8,6 +8,7 @@ use Resova\Model;
  * The basket object
  * The baskets object allows you to manage shopping baskets that can be used to create Transactions.
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Basket extends Model

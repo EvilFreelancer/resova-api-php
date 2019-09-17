@@ -7,6 +7,7 @@ use Resova\Model;
 /**
  * Class Customer
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Customer extends Model

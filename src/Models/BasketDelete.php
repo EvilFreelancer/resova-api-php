@@ -9,6 +9,7 @@ class BasketDelete
     /**
      * List of allowed fields
      *
+     * @codeCoverageIgnore
      * @return array
      */
     public function allowed(): array

@@ -4,6 +4,12 @@ namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class TransactionUpdate
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class TransactionUpdate extends Model
 {
     public function allowed(): array

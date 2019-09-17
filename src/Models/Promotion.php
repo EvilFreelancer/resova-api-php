@@ -6,6 +6,7 @@ namespace Resova\Objects;
  * The basket promotion object
  * The promotions object allows you to manage promotions for a basket.
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Promotion

@@ -4,6 +4,12 @@ namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class Pricing
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class Pricing extends Model
 {
     /**

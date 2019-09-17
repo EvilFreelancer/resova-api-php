@@ -7,6 +7,7 @@ use Resova\Model;
 /**
  * The item questions.
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Question extends Model

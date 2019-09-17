@@ -2,6 +2,12 @@
 
 namespace Resova\Models;
 
+/**
+ * Class PurchaseDelete
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class PurchaseDelete
 {
     /**

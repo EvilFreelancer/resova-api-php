@@ -2,6 +2,12 @@
 
 namespace Resova\Models;
 
+/**
+ * Class Instance
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class Instance
 {
     /*

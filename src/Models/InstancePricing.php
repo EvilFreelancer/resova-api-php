@@ -2,6 +2,12 @@
 
 namespace Resova\Models;
 
+/**
+ * Class InstancePricing
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class InstancePricing
 {
 

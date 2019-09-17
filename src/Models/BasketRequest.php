@@ -7,6 +7,7 @@ use Resova\Model;
 /**
  * Class BasketRequest
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class BasketRequest extends Model

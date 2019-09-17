@@ -4,6 +4,12 @@ namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class PromotionRequest
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class PromotionRequest extends Model
 {
     /**

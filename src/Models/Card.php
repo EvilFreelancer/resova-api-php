@@ -4,6 +4,12 @@ namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class Card
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class Card extends Model
 {
     public function allowed(): array

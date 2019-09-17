@@ -1,9 +1,13 @@
 <?php
 
-
 namespace Resova\Models;
 
-
+/**
+ * Class WebhookList
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class WebhookList
 {
 

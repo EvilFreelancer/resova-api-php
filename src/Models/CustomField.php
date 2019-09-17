@@ -7,6 +7,7 @@ use Resova\Model;
 /**
  * Class CustomField
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class CustomField extends Model

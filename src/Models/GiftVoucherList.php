@@ -2,6 +2,12 @@
 
 namespace Resova\Models;
 
+/**
+ * Class GiftVoucherList
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class GiftVoucherList
 {
     /* TODO: make this

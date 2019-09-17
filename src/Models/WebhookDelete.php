@@ -4,6 +4,12 @@ namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class WebhookDelete
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class WebhookDelete extends Model
 {
     /**

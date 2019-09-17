@@ -7,6 +7,7 @@ use Resova\Model;
 /**
  * The item extras.
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Extra extends Model

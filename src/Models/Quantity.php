@@ -7,6 +7,7 @@ use Resova\Model;
 /**
  * The quantity of item pricing category.
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Quantity extends Model

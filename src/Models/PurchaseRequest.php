@@ -4,6 +4,12 @@ namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class PurchaseRequest
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class PurchaseRequest extends Model
 {
     /**

@@ -6,6 +6,7 @@ namespace Resova\Objects;
  * The basket purchase object
  * The purchase object allows you to manage purchases for a basket.
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Purchase

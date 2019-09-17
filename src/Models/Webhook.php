@@ -7,6 +7,7 @@ use Resova\Model;
 /**
  * Webhook events notify you whenever an event occurs on your account.
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Webhook extends Model

@@ -2,6 +2,12 @@
 
 namespace Resova\Models;
 
+/**
+ * Class BookingList
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class BookingList
 {
     /*

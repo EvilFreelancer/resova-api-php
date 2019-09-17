@@ -6,6 +6,7 @@ namespace Resova\Objects;
  * The basket booking object
  * The booking object allows you to manage bookings for a basket.
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class Booking

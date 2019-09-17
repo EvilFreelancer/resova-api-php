@@ -7,6 +7,7 @@ use Resova\Model;
 /**
  * Class BookingRequest
  *
+ * @codeCoverageIgnore
  * @package Resova\Models
  */
 class BookingRequest extends Model

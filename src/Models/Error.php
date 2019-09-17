@@ -4,6 +4,12 @@ namespace Resova\Models;
 
 use Resova\Model;
 
+/**
+ * Class Error
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class Error extends Model
 {
 

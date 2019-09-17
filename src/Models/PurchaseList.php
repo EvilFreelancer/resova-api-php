@@ -2,6 +2,12 @@
 
 namespace Resova\Models;
 
+/**
+ * Class PurchaseList
+ *
+ * @codeCoverageIgnore
+ * @package Resova\Models
+ */
 class PurchaseList
 {
     /*
