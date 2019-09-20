@@ -132,8 +132,7 @@ class Client
             $object = new $class($this->config);
 
         } catch (ErrorException | ClientException $e) {
-            echo $e->getMessage() . "\n";
-            echo $e->getTrace();
+            echo $e->getMessage();
         }
 
         // If object is not created
@@ -167,8 +166,7 @@ class Client
             $object = new $class($this->config);
 
         } catch (ErrorException | ClientException $e) {
-            echo $e->getMessage() . "\n";
-            echo $e->getTrace();
+            echo $e->getMessage();
         }
 
         // If object is not created
