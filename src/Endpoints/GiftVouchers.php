@@ -3,6 +3,7 @@
 namespace Resova\Endpoints;
 
 use Resova\Client;
+use Resova\Interfaces\QueryInterface;
 use Resova\Models\GiftVoucher;
 use Resova\Models\GiftVoucherList;
 
@@ -38,9 +39,9 @@ class GiftVouchers extends Client
      * Returns a list of your gift vouchers.
      * The gift vouchers are returned sorted by creation date, with the most recent gift vouchers appearing first.
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function all(): self
+    public function all(): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'get';

@@ -2,7 +2,6 @@
 
 namespace Resova;
 
-use GuzzleHttp\Exception\GuzzleException;
 use ErrorException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
@@ -26,7 +25,7 @@ trait HttpTrait
     /**
      * Object of main config
      *
-     * @var Config
+     * @var \Resova\Config
      */
     protected $config;
 
@@ -37,9 +36,9 @@ trait HttpTrait
      * @param string $url    endpoint url
      * @param mixed  $params List of parameters
      *
-     * @return null|ResponseInterface
-     * @throws GuzzleException
-     * @throws ErrorException
+     * @return null|\Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ErrorException
      */
     private function repeatRequest($type, $url, $params): ?ResponseInterface
     {
@@ -81,9 +80,9 @@ trait HttpTrait
      * Execute request and return response
      *
      * @return null|object Array with data or NULL if error
-     * @throws GuzzleException
-     * @throws ErrorException
-     * @throws EmptyResults
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ErrorException
+     * @throws \Resova\Exceptions\EmptyResults
      */
     public function exec()
     {
@@ -93,10 +92,10 @@ trait HttpTrait
     /**
      * Execute query and return RAW response from remote API
      *
-     * @return null|ResponseInterface RAW response or NULL if error
-     * @throws GuzzleException
-     * @throws ErrorException
-     * @throws EmptyResults
+     * @return null|\Psr\Http\Message\ResponseInterface RAW response or NULL if error
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ErrorException
+     * @throws \Resova\Exceptions\EmptyResults
      */
     public function raw(): ?ResponseInterface
     {
@@ -112,9 +111,9 @@ trait HttpTrait
      * @param bool   $raw      Return data in raw format
      *
      * @return null|object|ResponseInterface Array with data, RAW response or NULL if error
-     * @throws GuzzleException
-     * @throws ErrorException
-     * @throws EmptyResults
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ErrorException
+     * @throws \Resova\Exceptions\EmptyResults
      */
     private function doRequest($type, $endpoint, $params = null, bool $raw = false)
     {

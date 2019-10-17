@@ -3,6 +3,7 @@
 namespace Resova\Endpoints;
 
 use Resova\Client;
+use Resova\Interfaces\QueryInterface;
 use Resova\Models\Webhook;
 use Resova\Models\WebhookDelete;
 use Resova\Models\WebhookList;
@@ -30,9 +31,9 @@ class Webhooks extends Client
      * List all webhooks
      * Returns a list of your promotions. The promotions are returned sorted by creation date, with the most recent promotion appearing first.
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function all(): self
+    public function all(): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'get';
@@ -47,9 +48,9 @@ class Webhooks extends Client
      *
      * @param Webhook $webhook
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function create(Webhook $webhook): self
+    public function create(Webhook $webhook): QueryInterface
     {
         $webhook->setRequired([
             'endpoint',
@@ -70,9 +71,9 @@ class Webhooks extends Client
      *
      * @param Webhook $webhook
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function update(Webhook $webhook): self
+    public function update(Webhook $webhook): QueryInterface
     {
         $webhook->setRequired([
             'endpoint',
@@ -91,9 +92,9 @@ class Webhooks extends Client
     /**
      * Delete a webhook
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function delete(): self
+    public function delete(): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'delete';

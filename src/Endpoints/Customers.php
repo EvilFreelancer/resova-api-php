@@ -3,6 +3,7 @@
 namespace Resova\Endpoints;
 
 use Resova\Client;
+use Resova\Interfaces\QueryInterface;
 use Resova\Models\Customer;
 
 class Customers extends Client
@@ -18,9 +19,9 @@ class Customers extends Client
      *
      * @param Customer $customer
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function create(Customer $customer): self
+    public function create(Customer $customer): QueryInterface
     {
         $customer->setRequired([
             'first_name',
@@ -63,9 +64,9 @@ class Customers extends Client
      *
      * @param Customer $customer
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function update(Customer $customer): self
+    public function update(Customer $customer): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'put';

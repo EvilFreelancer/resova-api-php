@@ -2,11 +2,16 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use \Resova\Client;
-use \Resova\Models\Pricing;
-use \Resova\Models\Quantity;
+use Resova\Client;
+use Resova\Models\Pricing;
+use Resova\Models\Quantity;
+use Dotenv\Dotenv;
 
-$resova = new Client(['api_key' => '85PGcaVHn6ICbe193RL7LdHDlXMn6D09WSCP3HlUfEdCGf08Jq5yCtfosMD1NL']);
+if (file_exists(__DIR__ . '/.env')) {
+    Dotenv::create(__DIR__)->load();
+}
+
+$resova = new Client(getenv('API_KEY'));
 $result = $resova->availability->instance(3)->exec();
 print_r($result);
 
@@ -17,7 +22,7 @@ $pricing = new Pricing([
         new Quantity(['pricing_category_id' => 1, 'quantity' => 4]),
     ]
 ]);
-$result = $resova->availability->instance(123)->pricing($pricing)->exec();
+$result  = $resova->availability->instancePricing(123, $pricing)->exec();
 print_r($result);
 
 $result = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'))->exec();

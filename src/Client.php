@@ -12,6 +12,7 @@ use Resova\Endpoints\GiftVouchers;
 use Resova\Endpoints\Items;
 use Resova\Endpoints\Transactions;
 use Resova\Endpoints\Webhooks;
+use Resova\Interfaces\QueryInterface;
 
 /**
  * @property Availability $availability  Availability of time slots
@@ -33,7 +34,7 @@ use Resova\Endpoints\Webhooks;
  *
  * @package Resova
  */
-class Client
+class Client implements QueryInterface
 {
     use HttpTrait;
 

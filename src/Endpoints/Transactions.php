@@ -3,6 +3,7 @@
 namespace Resova\Endpoints;
 
 use Resova\Client;
+use Resova\Interfaces\QueryInterface;
 use Resova\Models\Transaction;
 use Resova\Models\TransactionRequest;
 use Resova\Models\TransactionUpdate;
@@ -23,9 +24,9 @@ class Transactions extends Client
      *
      * @param TransactionRequest $transaction
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function create(TransactionRequest $transaction): self
+    public function create(TransactionRequest $transaction): QueryInterface
     {
         $transaction->setRequired([
             'basket_id',
@@ -69,9 +70,9 @@ class Transactions extends Client
      *
      * @param TransactionUpdate $transaction
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function update(TransactionUpdate $transaction): self
+    public function update(TransactionUpdate $transaction): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'put';

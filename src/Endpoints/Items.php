@@ -3,6 +3,7 @@
 namespace Resova\Endpoints;
 
 use Resova\Client;
+use Resova\Interfaces\QueryInterface;
 
 class Items extends Client
 {
@@ -36,7 +37,7 @@ class Items extends Client
      *
      * @return $this
      */
-    public function all(): self
+    public function all(): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'get';
@@ -50,9 +51,9 @@ class Items extends Client
      * Returns a list of your item booking questions.
      * The items are returned sorted by creation date, with the most recent item appearing first.
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function booking_questions(): self
+    public function booking_questions(): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'get';
@@ -66,9 +67,9 @@ class Items extends Client
      * Returns a list of your item reviews.
      * The items are returned sorted by creation date, with the most recent item appearing first.
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function reviews(): self
+    public function reviews(): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'get';
@@ -82,9 +83,9 @@ class Items extends Client
      * Returns a list of your item extras.
      * The items are returned sorted by creation date, with the most recent item appearing first.
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function extras(): self
+    public function extras(): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'get';

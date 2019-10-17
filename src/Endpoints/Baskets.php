@@ -6,6 +6,7 @@ use Resova\Client;
 use Resova\Endpoints\Baskets\Bookings;
 use Resova\Endpoints\Baskets\Promotions;
 use Resova\Endpoints\Baskets\Purchases;
+use Resova\Interfaces\QueryInterface;
 use Resova\Models\Basket;
 use Resova\Models\BasketDelete;
 use Resova\Models\BasketRequest;
@@ -54,11 +55,11 @@ class Baskets extends Client
      * Create a basket
      * Creates a new basket object.
      *
-     * @param null|BasketRequest $basket
+     * @param \Resova\Models\BasketRequest|null $basket
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function create(BasketRequest $basket = null): self
+    public function create(BasketRequest $basket = null): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'post';
@@ -77,9 +78,9 @@ class Baskets extends Client
      *
      * @param null|BasketRequest $basket
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function update(BasketRequest $basket = null): self
+    public function update(BasketRequest $basket = null): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'put';
@@ -94,9 +95,9 @@ class Baskets extends Client
      * Delete a basket
      * Permanently deletes a basket. This cannot be undone.
      *
-     * @return $this
+     * @return \Resova\Interfaces\QueryInterface
      */
-    public function delete(): self
+    public function delete(): QueryInterface
     {
         // Set HTTP params
         $this->type     = 'delete';
