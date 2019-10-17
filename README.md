@@ -12,6 +12,41 @@
 
 My [review of Resova API](https://docs.google.com/document/d/11RVyOVyMxKqBIg-yNkJfhXS2dO0HwpocJt4QhjwXOU0/edit?usp=sharing) (work in progress)
 
+## Read first, this is important!
+
+1. Resova's technical support is very reluctant to answer any of your
+requests, even if you have a bank card connected and you earn money,
+with a small degree of probability any requests from you will stop
+being processed, and your mail will be blacklisted
+
+2. On trial account you can't use API, so you can't check functionality
+before adding the bank card
+
+3. You should add your server's IP to whitelist in Resova developer settings
+
+4. But despite paragraph `3.` your server's IP may be blocked
+automatically without explanations (via probably fail2ban),
+and support team after few unanswered questions will add your
+email/facebook account to blacklist
+
+5. Optimal amount of HTTP requests before your IP will banned
+is no more than 1000 per day, or about 40 requests per hour, 
+maybe this is due to the recent DDoS ​​attack to their servers,
+so be very careful, otherwise you will have to configure
+intermediate proxy servers, which is not very convenient
+(and which also will be banned after some time)
+
+6. Resova does not provide test accounts or stagging environments
+to test the functionality of your application before publishing to
+production, so be very careful when working with Resova API,
+double-check all data
+
+In general: working with Resova is a big risk, because if you will have any technical issues
+then you probably will not receive any help and be banned by support team.
+
+If you are a representative of Resova and would like to contact the
+author of this project, please [create an issue](https://github.com/EvilFreelancer/resova-api-php/issues).
+
 ## Terminology
 
 There are four key objects in Resova that every API developer should know about.
