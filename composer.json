@@ -19,7 +19,12 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Resova\\": "src/"
+            "Resova\\": "./src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Resova\\Tests\\": "./tests/"
         }
     },
     "require": {
@@ -29,6 +34,7 @@
         "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^7.0",
+        "vlucas/phpdotenv": "^3.6"
     }
 }
