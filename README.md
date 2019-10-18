@@ -89,7 +89,7 @@ where your API KEY will be located.
 
 <details>
 <summary>
-<h3>*Items* endpoints</h3>
+<b>*Items* endpoints</b>
 </summary>
 
 Items mean your rooms in Resova system.
@@ -122,7 +122,7 @@ print_r($result);
 
 <details>
 <summary>
-<h3>*Availability* endpoints</h3>
+<b>*Availability* endpoints</b>
 </summary>
 
 Availability details of instances, instances prices and calendars of dates etc.
@@ -155,7 +155,7 @@ print_r($result);
 
 <details>
 <summary>
-<h3>*Baskets* endpoints</h3>
+<b>*Baskets* endpoints</b>
 </summary>
 
 Baskets in Resova it mean Carts, it contain details about prepared for booking carts created by clients.
@@ -196,7 +196,7 @@ print_r($result);
 
 <details>
 <summary>
-<h3>*Customers* endpoints</h3>
+<b>*Customers* endpoints</b>
 </summary>
 
 For work with customers information, like emails, phones, addresses, etc.
@@ -237,7 +237,7 @@ print_r($result);
 
 <details>
 <summary>
-<h3>*Gift Voucher* endpoints</h3>
+<b>*Gift Voucher* endpoints</b>
 </summary>
 
 Gift Vouchers in Resova it mean Promocodes, you can manage your promo campaigns. 
@@ -258,7 +258,7 @@ print_r($result);
 
 <details>
 <summary>
-<h3>*Webhooks* endpoints</h3>
+<b>*Webhooks* endpoints</b>
 </summary>
 
 ```php
