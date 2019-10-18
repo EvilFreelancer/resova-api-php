@@ -1,0 +1,96 @@
+{
+  "id": "654321",
+  "reference": "somehash1",
+  "price": "240.00",
+  "discount": "0.00",
+  "fee": "0.00",
+  "tax": "0.00",
+  "total": "240.00",
+  "paid": "0.00",
+  "refunded": "0.00",
+  "due": "240.00",
+  "overpaid": "0.00",
+  "inital_payment_type": "arrival",
+  "channel": "site",
+  "device": "desktop",
+  "browser": "chrome",
+  "status": "1",
+  "bookings": [
+    {
+      "id": "1111",
+      "transaction_id": "654321",
+      "booking_date": "2019-05-21",
+      "booking_time": "16:45:00",
+      "booking_end": "17:45:00",
+      "duration": "60",
+      "is_private": "1",
+      "total_quantity": "4",
+      "per_person": "0.00",
+      "price": "60.00",
+      "discount": "0.00",
+      "fee": "0.00",
+      "tax": "0.00",
+      "total": "60",
+      "quantities": [
+        {
+          "per_person": "15.00",
+          "pp_overwrite": "0.00",
+          "total": "45.00",
+          "quantity": "4",
+          "pricing_category": {
+            "id": "123",
+            "name": "Some exit game"
+          }
+        }
+      ],
+      "item": {
+        "id": "321",
+        "name": "Some exit game",
+        "short_description": "Some exit game short",
+        "long_description": "Some exit game with <p>html tags</p> and long description",
+        "featured_image": "https://escaperoomestonia.resova.eu/image/image.jpg",
+        "location": {
+          "address": "address",
+          "address2": "",
+          "city": "city",
+          "county": "country",
+          "postcode": "postcode",
+          "country": "country short code, like UK or EE",
+          "full_address": "full address, like: address, address2, city, country, postcode"
+        },
+        "pricing_categories": [
+          {
+            "id": "123",
+            "name": "Some exit game",
+            "min_quantity": "2",
+            "max_quantity": "6",
+            "default_quantity": "2",
+            "single_price": "45.00"
+          }
+        ]
+      },
+      "time": {
+        "id": "123456",
+        "item_time": "16:45:00"
+      }
+    }
+  ],
+  "customer": {
+    "id": "12345",
+    "reference": "somehash2",
+    "ip": "123.123.123.123",
+    "first_name": "Awe",
+    "last_name": "Some",
+    "name": "Awe Some",
+    "email": "awesome@example.com",
+    "mobile": "123456",
+    "telephone": "",
+    "address": "",
+    "address2": "",
+    "city": "",
+    "county": "",
+    "postcode": "",
+    "emails_subscribed": "0",
+    "image": "https://escaperoomestonia.resova.eu/image/fallback.jpg"
+  }
+}

@@ -2,9 +2,14 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use \Resova\Client;
+use Dotenv\Dotenv;
+use Resova\Client;
 
-$resova = new Client(['api_key' => '85PGcaVHn6ICbe193RL7LdHDlXMn6D09WSCP3HlUfEdCGf08Jq5yCtfosMD1NL']);
+if (file_exists(__DIR__ . '/.env')) {
+    Dotenv::create(__DIR__)->load();
+}
+
+$resova = new Client(getenv('API_KEY'));
 
 // Single
 $result = $resova->gift_voucher(123)->exec();

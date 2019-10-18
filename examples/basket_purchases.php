@@ -1,11 +1,15 @@
 <?php
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use \Resova\Client;
-use \Resova\Models\PurchaseRequest;
+use Dotenv\Dotenv;
+use Resova\Client;
+use Resova\Models\PurchaseRequest;
 
-$resova = new Client(['api_key' => '85PGcaVHn6ICbe193RL7LdHDlXMn6D09WSCP3HlUfEdCGf08Jq5yCtfosMD1NL']);
+if (file_exists(__DIR__ . '/.env')) {
+    Dotenv::create(__DIR__)->load();
+}
+
+$resova = new Client(getenv('API_KEY'));
 
 // Purchase create object has required fields
 $purchaseCreate = new PurchaseRequest([
