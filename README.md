@@ -66,16 +66,19 @@ See other examples of usage [here](examples) separated by class names.
 
 ```php
 <?php
-
 require_once __DIR__ . '/vendor/autoload.php';
 
-$resova = new \Resova\Client(['api_key' => 'xxxx']);
+use Resova\Client;
+
+$resova = new Client(['api_key' => 'xxxx']);
 
 // Get all slots for all items in dates range
 $calendar = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'))->exec();
 
-// Get availability of slots for some item
-$instance = $resova->availability->instance(3)->exec();
+foreach ($calendar as $instances) {
+    // Get availability of slots for some item
+    $instance = $resova->availability->instance(3)->exec();    
+}
 ```
 
 **Where can I find my api key?**
@@ -84,7 +87,10 @@ If you haven't already, you can sign up for a new account here.
 Once you have logged into your account head over to **Settings > General Settings > Developer**
 where your API KEY will be located.
 
-### *Items* endpoints
+<details>
+<summary>
+<h3>*Items* endpoints</h3>
+</summary>
 
 Items mean your rooms in Resova system.
 
@@ -112,7 +118,12 @@ $result = $resova->items->exec();
 print_r($result);
 ```
 
-### *Availability* endpoints
+</details>
+
+<details>
+<summary>
+<h3>*Availability* endpoints</h3>
+</summary>
 
 Availability details of instances, instances prices and calendars of dates etc.
 
@@ -140,7 +151,12 @@ $result = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'))->exec();
 print_r($result);
 ```
 
-### *Baskets* endpoints
+</details>
+
+<details>
+<summary>
+<h3>*Baskets* endpoints</h3>
+</summary>
 
 Baskets in Resova it mean Carts, it contain details about prepared for booking carts created by clients.
 
@@ -176,7 +192,12 @@ $result = $resova->basket(123)->delete()->exec();
 print_r($result);
 ```
 
-### *Customers* endpoints
+</details>
+
+<details>
+<summary>
+<h3>*Customers* endpoints</h3>
+</summary>
 
 For work with customers information, like emails, phones, addresses, etc.
 
@@ -212,7 +233,12 @@ $result = $resova->customer(123)->update($customerUpdate)->exec();
 print_r($result);
 ```
 
-### *Gift Vouchers* endpoints
+</details>
+
+<details>
+<summary>
+<h3>*Gift Voucher* endpoints</h3>
+</summary>
 
 Gift Vouchers in Resova it mean Promocodes, you can manage your promo campaigns. 
 
@@ -227,6 +253,21 @@ print_r($result);
 $result = $resova->gift_vouchers->exec();
 print_r($result);
 ```
+
+</details>
+
+<details>
+<summary>
+<h3>*Webhooks* endpoints</h3>
+</summary>
+
+```php
+// All
+$result = $resova->webhooks->all()->exec();
+print_r($result);
+```
+
+</details>
 
 # Links
 
