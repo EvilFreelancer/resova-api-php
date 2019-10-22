@@ -23,7 +23,7 @@ class Customer extends Model
             'first_name'    => 'string', // The first name of the customer.
             'last_name'     => 'string', // The last name of the customer.
             'email'         => 'string', // The email for the customer.
-            'password;'     => 'string', // The password for the customer.
+            'password'      => 'string', // The password for the customer.
             'mobile'        => 'string', // The mobile number for the customer.
             'telephone'     => 'string', // The telephone number for the customer.
             'address'       => 'string', // The address line 1 of the customer.
