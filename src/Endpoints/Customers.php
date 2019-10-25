@@ -5,6 +5,7 @@ namespace Resova\Endpoints;
 use Resova\Client;
 use Resova\Interfaces\QueryInterface;
 use Resova\Models\Customer;
+use Resova\Models\CustomerCreate;
 
 class Customers extends Client
 {
@@ -17,11 +18,11 @@ class Customers extends Client
      * Create a customer
      * Creates a new customer object.
      *
-     * @param Customer $customer
+     * @param CustomerCreate $customer
      *
      * @return \Resova\Interfaces\QueryInterface
      */
-    public function create(Customer $customer): QueryInterface
+    public function create(CustomerCreate $customer): QueryInterface
     {
         $customer->setRequired([
             'first_name',
