@@ -77,4 +77,41 @@ class Customers extends Client
 
         return $this;
     }
+
+    /**
+     * Try to find customer by string
+     *
+     * INFO: It work only in frontend mode
+     *
+     * @param string $string
+     * @param int    $page
+     * @param int    $limit
+     *
+     * @return \Resova\Interfaces\QueryInterface
+     */
+    public function search(string $string, int $page = 1, int $limit = 500): QueryInterface
+    {
+        $params = [
+            'page'   => $page,
+            'limit'  => $limit,
+            'search' => $string,
+        ];
+
+        // Set HTTP params
+        $this->type     = 'get';
+        $this->endpoint = '/customers' . '?' . http_build_query($params);
+
+        // TODO: array of customers like below
+        // current_page: 1
+        // data: [{id: 1, reference: "some-hash", ip: "123.123.123.123", first_name: "Test",…}] // TODO: here array of Customer objects
+        // last_page: 1
+        // overall_total: 1
+        // per_page: 500
+        // total: 1
+        // visible: 1
+
+        // $this->response = Customer::class;
+
+        return $this;
+    }
 }
