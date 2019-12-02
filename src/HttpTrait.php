@@ -109,20 +109,19 @@ trait HttpTrait
      * @param string $endpoint Api request endpoint
      * @param mixed  $params   List of parameters
      * @param bool   $raw      Return data in raw format
-     * @param bool   $debug
      *
      * @return null|object|ResponseInterface Array with data, RAW response or NULL if error
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ErrorException
      * @throws \Resova\Exceptions\EmptyResults
      */
-    private function doRequest($type, $endpoint, $params = null, bool $raw = false, bool $debug = false)
+    private function doRequest($type, $endpoint, $params = null, bool $raw = false)
     {
         // Null by default
         $response = null;
 
         // Execute the request to server
-        $result = $this->repeatRequest($type, $endpoint, $params, $debug);
+        $result = $this->repeatRequest($type, $endpoint, $params);
 
         // If debug then return Guzzle object
         if ($this->config->get('debug') === true) {
