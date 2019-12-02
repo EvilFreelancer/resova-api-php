@@ -18,16 +18,16 @@ trait HttpTrait
     /**
      * Initial state of some variables
      *
-     * @var \GuzzleHttp\Client
+     * @var null|\GuzzleHttp\Client
      */
-    private $client;
+    public $client;
 
     /**
      * Object of main config
      *
      * @var \Resova\Config
      */
-    protected $config;
+    public $config;
 
     /**
      * Request executor with timeout and repeat tries
@@ -35,12 +35,13 @@ trait HttpTrait
      * @param string $type   Request method
      * @param string $url    endpoint url
      * @param mixed  $params List of parameters
+     * @param bool   $debug  If we need a debug mode
      *
-     * @return null|\Psr\Http\Message\ResponseInterface
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return \Psr\Http\Message\ResponseInterface|null
      * @throws \ErrorException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function repeatRequest($type, $url, $params): ?ResponseInterface
+    private function repeatRequest(string $type, string $url, $params, bool $debug = false): ?ResponseInterface
     {
         $type = strtoupper($type);
 
@@ -52,6 +53,11 @@ trait HttpTrait
             } else {
                 // Execute the request to server
                 $result = $this->client->request($type, $this->config->get('base_uri') . $url, [RequestOptions::FORM_PARAMS => $params->toArray()]);
+            }
+
+            // Return request for debug mode
+            if ($debug) {
+                return $result;
             }
 
             // Check the code status
@@ -79,27 +85,31 @@ trait HttpTrait
     /**
      * Execute request and return response
      *
+     * @param bool $debug
+     *
      * @return null|object Array with data or NULL if error
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ErrorException
      * @throws \Resova\Exceptions\EmptyResults
      */
-    public function exec()
+    public function exec(bool $debug = false)
     {
-        return $this->doRequest($this->type, $this->endpoint, $this->params);
+        return $this->doRequest($this->type, $this->endpoint, $this->params, false, $debug);
     }
 
     /**
      * Execute query and return RAW response from remote API
+     *
+     * @param bool $debug
      *
      * @return null|\Psr\Http\Message\ResponseInterface RAW response or NULL if error
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ErrorException
      * @throws \Resova\Exceptions\EmptyResults
      */
-    public function raw(): ?ResponseInterface
+    public function raw(bool $debug = false): ?ResponseInterface
     {
-        return $this->doRequest($this->type, $this->endpoint, $this->params, true);
+        return $this->doRequest($this->type, $this->endpoint, $this->params, true, $debug);
     }
 
     /**
@@ -109,19 +119,25 @@ trait HttpTrait
      * @param string $endpoint Api request endpoint
      * @param mixed  $params   List of parameters
      * @param bool   $raw      Return data in raw format
+     * @param bool   $debug
      *
      * @return null|object|ResponseInterface Array with data, RAW response or NULL if error
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ErrorException
      * @throws \Resova\Exceptions\EmptyResults
      */
-    private function doRequest($type, $endpoint, $params = null, bool $raw = false)
+    private function doRequest($type, $endpoint, $params = null, bool $raw = false, bool $debug = false)
     {
         // Null by default
         $response = null;
 
         // Execute the request to server
-        $result = $this->repeatRequest($type, $endpoint, $params);
+        $result = $this->repeatRequest($type, $endpoint, $params, $debug);
+
+        // If debug then return Guzzle object
+        if ($debug) {
+            return $result;
+        }
 
         if (null === $result) {
             throw new EmptyResults('Empty results returned from Resova API');

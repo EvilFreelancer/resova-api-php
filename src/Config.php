@@ -13,6 +13,7 @@ class Config
         'api_key',
         'proxy',
         'base_uri',
+        'handler',
         'user_agent',
         'timeout',
         'tries',
@@ -42,6 +43,7 @@ class Config
      * Config constructor.
      *
      * @param array $parameters List of parameters which can be set on object creation stage
+     *
      * @throws \ErrorException
      */
     public function __construct(array $parameters = [])
@@ -189,6 +191,11 @@ class Config
         // Proxy is optional
         if (isset($this->proxy)) {
             $options['proxy'] = $this->proxy;
+        }
+
+        // Handler is optional for tests
+        if (isset($this->handler)) {
+            $options['handler'] = $this->handler;
         }
 
         return $options;

@@ -15,13 +15,13 @@ use Resova\Endpoints\Webhooks;
 use Resova\Interfaces\QueryInterface;
 
 /**
- * @property Availability $availability  Availability of time slots
- * @property Baskets      $baskets       Baskets management
- * @property Customers    $customers     Customers management
- * @property GiftVouchers $gift_vouchers GiftVouchers management
- * @property Items        $items         For work with list of items
- * @property Transactions $transactions  Transactions management
- * @property Webhooks     $webhooks      Webhooks management
+ * @property \Resova\Interfaces\AvailabilityInterface $availability  Availability of time slots
+ * @property Baskets                                  $baskets       Baskets management
+ * @property Customers                                $customers     Customers management
+ * @property GiftVouchers                             $gift_vouchers GiftVouchers management
+ * @property Items                                    $items         For work with list of items
+ * @property Transactions                             $transactions  Transactions management
+ * @property Webhooks                                 $webhooks      Webhooks management
  *
  * @method Baskets      basket(int $basket_id)
  * @method Customers    customer(int $customer_id)
@@ -72,26 +72,42 @@ class Client implements QueryInterface
     /**
      * API constructor.
      *
-     * @param string|array|Config $config
+     * @param \Resova\Config $config
+     * @param bool           $init
+     *
      * @throws ErrorException
      */
-    public function __construct($config)
+    public function __construct(Config $config, bool $init = true)
     {
-        // If string then it's a token
-        if (is_string($config)) {
-            $config = new Config(['api_key' => $config]);
-        }
-
-        // If array then need create object
-        if (is_array($config)) {
-            $config = new Config($config);
-        }
-
         // Save config into local variable
         $this->config = $config;
 
-        // Store the client object
-        $this->client = new \GuzzleHttp\Client($config->guzzle());
+        // Init if need
+        if ($init) {
+            $this->client = $this->initClient($config->guzzle());
+        }
+    }
+
+    /**
+     * Get current client instance
+     *
+     * @return null|\GuzzleHttp\Client
+     */
+    public function getClient(): ?\GuzzleHttp\Client
+    {
+        return $this->client;
+    }
+
+    /**
+     * Store the client object
+     *
+     * @param array $configs
+     *
+     * @return \GuzzleHttp\Client
+     */
+    public function initClient(array $configs = []): \GuzzleHttp\Client
+    {
+        return new \GuzzleHttp\Client($configs);
     }
 
     /**
@@ -182,6 +198,7 @@ class Client implements QueryInterface
      * Check if class is exist in folder
      *
      * @param string $name
+     *
      * @return bool
      */
     public function __isset(string $name): bool
@@ -194,6 +211,7 @@ class Client implements QueryInterface
      *
      * @param string $name
      * @param mixed  $value
+     *
      * @throws BadMethodCallException
      */
     public function __set(string $name, $value)

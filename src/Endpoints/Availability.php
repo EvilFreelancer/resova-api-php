@@ -3,6 +3,7 @@
 namespace Resova\Endpoints;
 
 use Resova\Client;
+use Resova\Interfaces\AvailabilityInterface;
 use Resova\Interfaces\QueryInterface;
 use Resova\Models\Instance;
 use Resova\Models\InstancePricing;
@@ -14,7 +15,7 @@ use Resova\Models\Pricing;
  *
  * @package Resova\Endpoints
  */
-class Availability extends Client
+class Availability extends Client implements AvailabilityInterface
 {
     /**
      * Retrieve daily availability
@@ -23,10 +24,11 @@ class Availability extends Client
      * @param string $start_date The start date for the availability range
      * @param string $end_date   The end date for the availability range.
      * @param array  $item_ids   Limit the availability results by item ids
+     * @param int    $id         Limit the availability results to a single item
      *
      * @return \Resova\Interfaces\QueryInterface
      */
-    public function calendar(string $start_date, string $end_date, array $item_ids = []): QueryInterface
+    public function calendar(string $start_date, string $end_date, array $item_ids = [], int $id = null): QueryInterface
     {
         // Default parameters
         $params = [

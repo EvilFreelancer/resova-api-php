@@ -1,9 +1,10 @@
 <?php
 
-namespace Resova;
+namespace Resova\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Exception;
+use Resova\Client;
 use Resova\Models\BasketRequest;
 use Resova\Models\Customer;
 use Resova\Models\Pricing;
@@ -42,7 +43,7 @@ class ClientTest extends TestCase
                 new Quantity(['pricing_category_id' => 1, 'quantity' => 2]),
             ]
         ]);
-        $this->assertInstanceOf(Endpoints\Availability\Instances::class, $obj->availability->instance(123)->pricing($pricing));
+        $this->assertInstanceOf(\Resova\Endpoints\Availability\Instances::class, $obj->availability->instance(123)->pricing($pricing));
         $this->assertInstanceOf(Endpoints\Availability\Instances::class, $obj->availability->instance(123));
         $this->assertInstanceOf(Endpoints\Availability\Instances::class, $obj->availability->instances);
         $this->assertInstanceOf(Endpoints\Availability\Calendars::class, $obj->availability->calendar(date('Y-m-d'), date('Y-m-d')));

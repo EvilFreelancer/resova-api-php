@@ -30,7 +30,7 @@ and support team after few unanswered questions will add your
 email/facebook account to blacklist
 
 5. Optimal amount of HTTP requests before your IP will banned
-is no more than 1000 per day, or about 40 requests per hour, 
+is no more than 1000 per day, or about 40 requests per hour,
 maybe this is due to the recent DDoS ​​attack to their servers,
 so be very careful, otherwise you will have to configure
 intermediate proxy servers, which is not very convenient
@@ -40,12 +40,6 @@ intermediate proxy servers, which is not very convenient
 to test the functionality of your application before publishing to
 production, so be very careful when working with Resova API,
 double-check all data
-
-In general: working with Resova is a big risk, because if you will have any technical issues
-then you probably will not receive any help and be banned by support team.
-
-If you are a representative of Resova and would like to contact the
-author of this project, please [create an issue](https://github.com/EvilFreelancer/resova-api-php/issues).
 
 ## Terminology
 
@@ -77,7 +71,7 @@ $calendar = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'))->exec(
 
 foreach ($calendar as $instances) {
     // Get availability of slots for some item
-    $instance = $resova->availability->instance(3)->exec();    
+    $instance = $resova->availability->instance(3)->exec();
 }
 ```
 

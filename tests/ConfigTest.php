@@ -1,10 +1,11 @@
 <?php
 
-namespace Resova;
+namespace Resova\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Exception;
 use ErrorException;
+use Resova\Config;
 
 class ConfigTest extends TestCase
 {
