@@ -1,6 +1,6 @@
 <?php
 
-namespace Resova\Tests;
+namespace Resova\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Exception;

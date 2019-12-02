@@ -24,11 +24,11 @@ class Availability extends Client implements AvailabilityInterface
      * @param string $start_date The start date for the availability range
      * @param string $end_date   The end date for the availability range.
      * @param array  $item_ids   Limit the availability results by item ids
-     * @param int    $id         Limit the availability results to a single item
+     * @param int    $item_id    Limit the availability results to a single item
      *
      * @return \Resova\Interfaces\QueryInterface
      */
-    public function calendar(string $start_date, string $end_date, array $item_ids = [], int $id = null): QueryInterface
+    public function calendar(string $start_date, string $end_date, array $item_ids = [], int $item_id = null): QueryInterface
     {
         // Default parameters
         $params = [
@@ -39,6 +39,11 @@ class Availability extends Client implements AvailabilityInterface
         // Optional: Limit the availability results by item ids
         if (!empty($item_ids)) {
             $params['item_ids'] = implode(',', $item_ids);
+        }
+
+        // Filter by ID
+        if (!empty($item_id)) {
+            $params['item_id'] = implode(',', $item_ids);
         }
 
         // Set HTTP params
