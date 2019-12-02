@@ -44,7 +44,7 @@ class AvailabilityTest extends TestCase
         // Resova client
         $resova = new ResovaClient($config);
 
-        $result = $resova->availability->calendar('1', '2', [1], 1)->raw(true);
+        $result = $resova->availability->calendar('1', '2', [1], 1)->exec();
         $code   = $result->getStatusCode();
         $body   = json_decode($result->getBody()->getContents(), false);
 
