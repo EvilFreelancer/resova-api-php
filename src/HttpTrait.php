@@ -35,13 +35,12 @@ trait HttpTrait
      * @param string $type   Request method
      * @param string $url    endpoint url
      * @param mixed  $params List of parameters
-     * @param bool   $debug  If we need a debug mode
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      * @throws \ErrorException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function repeatRequest(string $type, string $url, $params, bool $debug = false): ?ResponseInterface
+    private function repeatRequest(string $type, string $url, $params): ?ResponseInterface
     {
         $type = strtoupper($type);
 
@@ -53,11 +52,6 @@ trait HttpTrait
             } else {
                 // Execute the request to server
                 $result = $this->client->request($type, $this->config->get('base_uri') . $url, [RequestOptions::FORM_PARAMS => $params->toArray()]);
-            }
-
-            // Return request for debug mode
-            if ($debug) {
-                return $result;
             }
 
             // Check the code status
@@ -85,31 +79,27 @@ trait HttpTrait
     /**
      * Execute request and return response
      *
-     * @param bool $debug
-     *
      * @return null|object Array with data or NULL if error
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ErrorException
      * @throws \Resova\Exceptions\EmptyResults
      */
-    public function exec(bool $debug = false)
+    public function exec()
     {
-        return $this->doRequest($this->type, $this->endpoint, $this->params, false, $debug);
+        return $this->doRequest($this->type, $this->endpoint, $this->params, false);
     }
 
     /**
      * Execute query and return RAW response from remote API
-     *
-     * @param bool $debug
      *
      * @return null|\Psr\Http\Message\ResponseInterface RAW response or NULL if error
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ErrorException
      * @throws \Resova\Exceptions\EmptyResults
      */
-    public function raw(bool $debug = false): ?ResponseInterface
+    public function raw(): ?ResponseInterface
     {
-        return $this->doRequest($this->type, $this->endpoint, $this->params, true, $debug);
+        return $this->doRequest($this->type, $this->endpoint, $this->params, true);
     }
 
     /**
@@ -135,7 +125,7 @@ trait HttpTrait
         $result = $this->repeatRequest($type, $endpoint, $params, $debug);
 
         // If debug then return Guzzle object
-        if ($debug) {
+        if ($this->config->get('debug') === true) {
             return $result;
         }
 

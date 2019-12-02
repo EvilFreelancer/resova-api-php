@@ -39,16 +39,17 @@ class AvailabilityTest extends TestCase
         $config = new ResovaConfig();
         $config->set('handler', $handler);
         $config->set('api_key', '123456');
+        $config->set('debug', true);
 
         // Resova client
         $resova = new ResovaClient($config);
 
         $result = $resova->availability->calendar('1', '2', [1], 1)->raw(true);
         $code   = $result->getStatusCode();
-        $body   = json_decode($result->getBody()->getContents(), true);
+        $body   = json_decode($result->getBody()->getContents(), false);
 
         $this->assertEquals(200, $code);
-        $this->assertEquals('2019-05-31', $body['start_date']);
+        $this->assertEquals('2019-05-31', $body->start_date);
     }
 
 }
