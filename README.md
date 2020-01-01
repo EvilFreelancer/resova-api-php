@@ -8,38 +8,55 @@
 
 # Resova API PHP7 client
 
+This project is a simple and minimalistic client for work with Resova API, based on Guzzle Http client.
+
     composer require evilfreelancer/resova-api-php
 
-My [review of Resova API](https://docs.google.com/document/d/11RVyOVyMxKqBIg-yNkJfhXS2dO0HwpocJt4QhjwXOU0/edit?usp=sharing) (work in progress)
+## Laravel framework support
 
-## Read first, this is important!
+Resova API client is optimized for usage as normal Laravel package, all functional is available via `\ResovaApi` facade,
+for access to client object you need instead:
 
-1. Resova's technical support is very reluctant to answer any of your
-requests, even if you have a bank card connected and you earn money,
-with a small degree of probability any requests from you will stop
-being processed, and your mail will be blacklisted
+```php
+$config = new \Resova\Config(['api_key' => getenv('API_KEY')]);
+$resova = new \Resova\Client($config);
+```
 
-2. On trial account you can't use API, so you can't check functionality
-before adding the bank card
+Use:
 
-3. You should add your server's IP to whitelist in Resova developer settings
+```php
+$resova = \ResovaApi::getClient();
+```
 
-4. But despite paragraph `3.` your server's IP may be blocked
-automatically without explanations (via probably fail2ban),
-and support team after few unanswered questions will add your
-email/facebook account to blacklist
+You also may provide additional parameters to your client by passing array of parameters to `getClient` method:
 
-5. Optimal amount of HTTP requests before your IP will banned
-is no more than 1000 per day, or about 40 requests per hour,
-maybe this is due to the recent DDoS ​​attack to their servers,
-so be very careful, otherwise you will have to configure
-intermediate proxy servers, which is not very convenient
-(and which also will be banned after some time)
+```php
+$resova = \ResovaApi::getClient([
+    'api_key' => 'my-secret-key',
+    'timeout' => 1000,
+]);
+```
 
-6. Resova does not provide test accounts or stagging environments
-to test the functionality of your application before publishing to
-production, so be very careful when working with Resova API,
-double-check all data
+### Laravel installation
+
+Install the package via Composer:
+
+    composer require evilfreelancer/resova-api-php
+
+By default the package will automatically register its service provider, but
+if you are a happy owner of Laravel version less than 5.3, then in a project, which is using your package
+(after composer require is done, of course), add into`providers` block of your `config/app.php`:
+
+```php
+'providers' => [
+    // ...
+    Resova\Laravel\ClientServiceProvider::class,
+],
+```
+
+Optionally, publish the configuration file if you want to change any defaults:
+
+    php artisan vendor:publish --provider="Resova\\Laravel\\ClientServiceProvider"
 
 ## Terminology
 
@@ -62,9 +79,11 @@ See other examples of usage [here](examples) separated by class names.
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
+use Resova\Config;
 use Resova\Client;
 
-$resova = new Client(['api_key' => 'xxxx']);
+$config = new Config(['api_key' => getenv('API_KEY')]);
+$resova = new Client($config);
 
 // Get all slots for all items in dates range
 $calendar = $resova->availability->calendar(date('Y-m-d'), date('Y-m-d'))->exec();
@@ -199,9 +218,10 @@ https://developers.resova.com/reference#customers
 
 ```php
 use \Resova\Models\Customer;
+use \Resova\Models\CustomerCreate;
 
 // Customer create request object
-$customerCreate = new Customer([
+$customerCreate = new CustomerCreate([
     'first_name' => 'John',
     'last_name'  => 'Doe',
     'email'      => 'email@example.com'
@@ -263,7 +283,37 @@ print_r($result);
 
 </details>
 
+# Some things which you also should know
+
+1. Resova's technical support is very reluctant to answer any of your
+requests, even if you have a bank card connected and you earn money,
+with a small degree of probability any requests from you will stop
+being processed, and your mail will be blacklisted
+
+2. On trial account you can't use API, so you can't check functionality
+before adding the bank card
+
+3. You should add your server's IP to whitelist in Resova developer settings
+
+4. But despite paragraph `3.` your server's IP may be blocked
+automatically without explanations (via probably fail2ban),
+and support team after few unanswered questions will add your
+email/facebook account to blacklist
+
+5. Optimal amount of HTTP requests before your IP will banned
+is no more than 1000 per day, or about 40 requests per hour,
+maybe this is due to the recent DDoS ​​attack to their servers,
+so be very careful, otherwise you will have to configure
+intermediate proxy servers, which is not very convenient
+(and which also will be banned after some time)
+
+6. Resova does not provide test accounts or stagging environments
+to test the functionality of your application before publishing to
+production, so be very careful when working with Resova API,
+double-check all data
+
 # Links
 
+* [Review of Resova API](https://docs.google.com/document/d/11RVyOVyMxKqBIg-yNkJfhXS2dO0HwpocJt4QhjwXOU0/edit?usp=sharing)
 * https://resova.com
 * https://developers.resova.com/reference
