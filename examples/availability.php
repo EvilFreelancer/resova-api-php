@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Resova\Config;
 use Resova\Client;
 use Resova\Models\Pricing;
 use Resova\Models\Quantity;
@@ -10,7 +11,8 @@ if (file_exists(__DIR__ . '/.env')) {
     Dotenv::create(__DIR__)->load();
 }
 
-$resova = new Client(getenv('API_KEY'));
+$config = new Config(['api_key' => getenv('API_KEY')]);
+$resova = new Client($config);
 $result = $resova->availability->instance(3)->exec();
 print_r($result);
 

@@ -9,7 +9,8 @@ if (file_exists(__DIR__ . '/.env')) {
     Dotenv::create(__DIR__)->load();
 }
 
-$resova = new Client(getenv('API_KEY'));
+$config = new Config(['api_key' => getenv('API_KEY')]);
+$resova = new Client($config);
 
 // Basket request object
 $basket = new BasketRequest([
