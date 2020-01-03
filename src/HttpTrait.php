@@ -46,6 +46,10 @@ trait HttpTrait
 
         for ($i = 1; $i < $this->config->get('tries'); $i++) {
 
+            if ($this->config->get('debug')) {
+                error_log("[$type] " . $this->config->get('base_uri') . $url);
+            }
+
             if ($params === null) {
                 // Execute the request to server
                 $result = $this->client->request($type, $this->config->get('base_uri') . $url);
