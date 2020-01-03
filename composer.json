@@ -50,7 +50,7 @@
                 "Resova\\Laravel\\ClientServiceProvider"
             ],
             "aliases": {
-                "ResovaApi": "ResovaApi\\Laravel\\ClientFacade"
+                "ResovaApi": "Resova\\Laravel\\ClientFacade"
             }
         }
     }
