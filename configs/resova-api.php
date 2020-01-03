@@ -8,6 +8,7 @@ return [
     'timeout'         => 20,
     'tries'           => 2,  // Count of tries
     'seconds'         => 10, // Waiting time per each try
+    'verbose'         => false,
     'debug'           => false,
     'track_redirects' => false,
 ];

@@ -19,6 +19,7 @@ class Config
         'tries',
         'seconds',
         'debug',
+        'verbose',
         'track_redirects'
     ];
 

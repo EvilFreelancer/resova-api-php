@@ -46,7 +46,7 @@ trait HttpTrait
 
         for ($i = 1; $i < $this->config->get('tries'); $i++) {
 
-            if ($this->config->get('debug')) {
+            if ($this->config->get('verbose')) {
                 error_log("[$type] " . $this->config->get('base_uri') . $url);
             }
 
