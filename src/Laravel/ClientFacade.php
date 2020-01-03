@@ -4,7 +4,7 @@ namespace Resova\Laravel;
 
 use Illuminate\Support\Facades\Facade;
 
-class ClientFacade
+class ClientFacade extends Facade
 {
     /**
      * @return string
