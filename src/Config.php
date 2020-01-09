@@ -20,7 +20,8 @@ class Config
         'seconds',
         'debug',
         'verbose',
-        'track_redirects'
+        'track_redirects',
+        'allow_redirects',
     ];
 
     /**
@@ -62,6 +63,8 @@ class Config
             // Optional parameters
             'debug'           => false,
             'track_redirects' => false,
+            'allow_redirects' => false,
+            'verbose'         => false,
 
             // Main parameters
             'timeout'         => 20,
