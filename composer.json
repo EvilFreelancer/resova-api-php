@@ -9,11 +9,9 @@
         "client",
         "rest-api",
         "api-client",
+        "api",
         "laravel",
         "package",
-        "resova",
-        "api",
-        "client",
         "facade"
     ],
     "authors": [

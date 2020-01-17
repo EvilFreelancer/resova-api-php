@@ -18,7 +18,7 @@ Resova API client is optimized for usage as normal Laravel package, all function
 for access to client object you need instead:
 
 ```php
-$config = new \Resova\Config(['api_key' => getenv('API_KEY')]);
+$config = new \Resova\Config(['api_key' => 'my-secret-key']);
 $resova = new \Resova\Client($config);
 ```
 
