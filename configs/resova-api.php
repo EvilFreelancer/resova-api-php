@@ -12,4 +12,10 @@ return [
     'debug'           => false,
     'track_redirects' => false,
     'allow_redirects' => false,
+
+    /*
+     * Describes the SSL certificate verification behavior of a request.
+     * http://docs.guzzlephp.org/en/stable/request-options.html#verify
+     */
+    'verify' => false,
 ];

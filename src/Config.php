@@ -20,6 +20,7 @@ class Config
         'seconds',
         'debug',
         'verbose',
+        'verify',
         'track_redirects',
         'allow_redirects',
     ];
@@ -65,6 +66,7 @@ class Config
             'track_redirects' => false,
             'allow_redirects' => false,
             'verbose'         => false,
+            'verify'          => false,
 
             // Main parameters
             'timeout'         => 20,
@@ -186,6 +188,7 @@ class Config
             'timeout'         => $this->get('timeout'),
             'track_redirects' => $this->get('track_redirects'),
             'debug'           => $this->get('debug'),
+            'verify'          => $this->get('verify'),
             'headers'         => [
                 'User-Agent' => $this->get('user_agent'),
                 'X-API-KEY'  => $this->get('api_key'),
